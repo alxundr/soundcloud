@@ -32,14 +32,12 @@ Ext.define('SoundCloud.controller.Songs', {
     ],
 
     onSearchfieldEnter: function(field, e, eOpts) {
-        var pageSize = 25;
         if (e.getKey() == e.ENTER) {
             console.log(field.getValue() + ' was entered');
             var grid = this.getSongsGrid();
             grid.store.load({
                 params: {
-                    q: field.getValue(),
-                    limit: pageSize
+                    q: field.getValue()
                 }
             });
         }

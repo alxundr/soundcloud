@@ -31,14 +31,12 @@
                 "designer|targetType": "Ext.form.field.Text",
                 "fn": "onSearchfieldEnter",
                 "implHandler": [
-                    "var pageSize = 25;",
                     "if (e.getKey() == e.ENTER) {",
                     "    console.log(field.getValue() + ' was entered');",
                     "    var grid = this.getSongsGrid();",
                     "    grid.store.load({",
                     "        params: {",
-                    "            q: field.getValue(),",
-                    "            limit: pageSize",
+                    "            q: field.getValue()",
                     "        }",
                     "    });",
                     "}"

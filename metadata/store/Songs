@@ -9,7 +9,7 @@
         "autoLoad": false,
         "designer|userClassName": "Songs",
         "model": "Song",
-        "pageSize": 50,
+        "pageSize": 25,
         "storeId": "Songs"
     },
     "name": "MyJsonStore",

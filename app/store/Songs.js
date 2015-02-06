@@ -29,7 +29,7 @@ Ext.define('SoundCloud.store.Songs', {
             autoLoad: false,
             model: 'SoundCloud.model.Song',
             storeId: 'Songs',
-            pageSize: 50,
+            pageSize: 25,
             proxy: {
                 type: 'ajax',
                 url: '/songs',
