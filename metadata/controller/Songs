@@ -1,0 +1,107 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Songs",
+        "stores": [
+            "Songs"
+        ]
+    },
+    "name": "MyController",
+    "designerId": "fd05be7f-f0a9-488b-bbd8-1e930d7f78a5",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#searchfield",
+                "designer|params": [
+                    "field",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "onSearchfieldEnter",
+                "implHandler": [
+                    "var pageSize = 25;",
+                    "if (e.getKey() == e.ENTER) {",
+                    "    console.log(field.getValue() + ' was entered');",
+                    "    var grid = this.getSongsGrid();",
+                    "    grid.store.load({",
+                    "        params: {",
+                    "            q: field.getValue(),",
+                    "            limit: pageSize",
+                    "        }",
+                    "    });",
+                    "}"
+                ],
+                "name": "specialkey"
+            },
+            "name": "onSearchfieldEnter",
+            "designerId": "d592357d-9c2b-4898-8673-dcc2d3d09bf8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "songsGrid",
+                "selector": "#songsGrid"
+            },
+            "name": "songsGrid",
+            "designerId": "ce226402-8ecd-4c51-bc61-1370b5a48221"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#songsGrid",
+                "designer|params": [
+                    "rowmodel",
+                    "record",
+                    "index",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onSongsGridSelect",
+                "implHandler": [
+                    "var detailsPanel = this.getDetailsPanel();",
+                    "detailsPanel.update(record.data); ",
+                    "SC.oEmbed(record.data.permalink_url, document.getElementById('player'));"
+                ],
+                "name": "select"
+            },
+            "name": "onSongsGridSelect",
+            "designerId": "ef36c0c0-869f-4e5e-9fbc-e19c74a972ae"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailsPanel",
+                "selector": "#detailsPanel"
+            },
+            "name": "detailsPanel",
+            "designerId": "ebf40a99-95a6-4e52-b569-dbc1facbfa15"
+        }
+    ]
+}

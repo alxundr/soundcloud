@@ -858,6 +858,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "ExtThemeNeptune.toolbar.Paging": [],
   "ExtThemeNeptune.toolbar.Toolbar": [],
   "SoundCloud.controller.Navigation": [],
+  "SoundCloud.controller.Songs": [],
+  "SoundCloud.model.Song": [],
+  "SoundCloud.store.Songs": [],
   "SoundCloud.view.MainView": []
 });
 
@@ -1864,6 +1867,9 @@ Ext.ClassManager.addNameAliasMappings({
   "ExtThemeNeptune.toolbar.Paging": [],
   "ExtThemeNeptune.toolbar.Toolbar": [],
   "SoundCloud.controller.Navigation": [],
+  "SoundCloud.controller.Songs": [],
+  "SoundCloud.model.Song": [],
+  "SoundCloud.store.Songs": [],
   "SoundCloud.view.MainView": [
     "widget.mainview"
   ]

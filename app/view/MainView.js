@@ -19,7 +19,12 @@ Ext.define('SoundCloud.view.MainView', {
 
     requires: [
         'Ext.menu.Menu',
-        'Ext.menu.Item'
+        'Ext.menu.Item',
+        'Ext.form.field.Text',
+        'Ext.XTemplate',
+        'Ext.grid.Panel',
+        'Ext.grid.column.Column',
+        'Ext.toolbar.Paging'
     ],
 
     itemId: 'mainView',
@@ -77,12 +82,78 @@ Ext.define('SoundCloud.view.MainView', {
                         {
                             xtype: 'panel',
                             itemId: 'homePanel',
+                            layout: 'border',
                             title: 'Home',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            }
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'top',
+                                    itemId: 'homeToolbar',
+                                    items: [
+                                        {
+                                            xtype: 'textfield',
+                                            itemId: 'searchfield',
+                                            fieldLabel: 'Search:'
+                                        }
+                                    ]
+                                }
+                            ],
+                            items: [
+                                {
+                                    xtype: 'panel',
+                                    flex: 1,
+                                    region: 'east',
+                                    itemId: 'detailsPanel',
+                                    tpl: [
+                                        '<div id=\'player\'>',
+                                        '</div>'
+                                    ],
+                                    width: 150,
+                                    layout: {
+                                        type: 'vbox',
+                                        align: 'stretch'
+                                    }
+                                },
+                                {
+                                    xtype: 'panel',
+                                    region: 'center',
+                                    layout: {
+                                        type: 'vbox',
+                                        align: 'stretch'
+                                    },
+                                    items: [
+                                        {
+                                            xtype: 'gridpanel',
+                                            flex: 1,
+                                            itemId: 'songsGrid',
+                                            store: 'Songs',
+                                            columns: [
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    width: 242,
+                                                    dataIndex: 'title',
+                                                    text: 'Title'
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    width: 536,
+                                                    dataIndex: 'permalink_url',
+                                                    text: 'Permalink Url'
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    dockedItems: [
+                                        {
+                                            xtype: 'pagingtoolbar',
+                                            dock: 'bottom',
+                                            itemId: 'pagingtoolbar',
+                                            displayInfo: true,
+                                            store: 'Songs'
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             xtype: 'panel',

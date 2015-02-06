@@ -1,0 +1,41 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Song"
+    },
+    "name": "MyModel",
+    "designerId": "5b2997e7-db0f-4e39-8a8d-20a14f613d4b",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title"
+            },
+            "name": "MyField",
+            "designerId": "02632a1d-2853-4f36-bfd4-f980909c211a"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "permalink_url"
+            },
+            "name": "MyField1",
+            "designerId": "3229170e-9d58-4677-982a-d9e6779c16ad"
+        }
+    ]
+}

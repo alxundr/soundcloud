@@ -14,7 +14,7 @@
                 "width": null
             }
         },
-        "urlPrefix": "http://localhost/SoundCloud/",
+        "urlPrefix": "http://localhost:9003/",
         "exportPath": "",
         "spacesToIndent": 4,
         "sdkPath": "",
@@ -23,7 +23,10 @@
         "cacheBust": false,
         "buildShouldOverwriteIndex": true,
         "generateArchitectVersion": true,
-        "projectHasEnabledWebServer": false
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "installStatus": "Not Installed",
+        "displayfield-ExtBox1-1204-inputEl": "a new version of the framework is available"
     },
     "xdsVersion": "3.2.0",
     "xdsBuild": 75,
@@ -34,14 +37,20 @@
         "view": [
             "353f0c49-9162-4dc5-8e2d-ffb09f0d3a62"
         ],
-        "store": [],
-        "controller": [
-            "02e19093-9c6b-4222-8b96-2632f82d7303"
+        "store": [
+            "66fc24a6-ee87-4400-a65e-3df99f9e6c55"
         ],
-        "model": [],
+        "controller": [
+            "02e19093-9c6b-4222-8b96-2632f82d7303",
+            "fd05be7f-f0a9-488b-bbd8-1e930d7f78a5"
+        ],
+        "model": [
+            "5b2997e7-db0f-4e39-8a8d-20a14f613d4b"
+        ],
         "resource": [
             "efa3151d-f411-416b-a78d-276e3b22783a",
-            "1b655537-54a1-4e38-9a0c-793595ea4b0b"
+            "1b655537-54a1-4e38-9a0c-793595ea4b0b",
+            "ff2c5848-f01c-43ae-aac5-45ffc361f2dc"
         ],
         "app": [
             "application"

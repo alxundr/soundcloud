@@ -1,0 +1,48 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "designer|userClassName": "Songs",
+        "model": "Song",
+        "pageSize": 50,
+        "storeId": "Songs"
+    },
+    "name": "MyJsonStore",
+    "designerId": "66fc24a6-ee87-4400-a65e-3df99f9e6c55",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/songs"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "86d4df86-854f-428b-9efc-4af79be71d07",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "root": "data",
+                        "totalProperty": "totalSongs"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "2e94805b-fb79-4d22-a33c-24b785a23ec8"
+                }
+            ]
+        }
+    ]
+}

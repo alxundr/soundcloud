@@ -20,11 +20,15 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
+    models: [
+        'Song'
+    ],
     views: [
         'MainView'
     ],
     controllers: [
-        'Navigation'
+        'Navigation',
+        'Songs'
     ],
     name: 'SoundCloud',
 
