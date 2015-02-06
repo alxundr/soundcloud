@@ -1,0 +1,50 @@
+{
+    "name": "SoundCloud",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "5.1.1.39",
+            "frameworkVersion": "4.2.1.883"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "http://localhost/SoundCloud/",
+        "exportPath": "",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "projectHasEnabledWebServer": false
+    },
+    "xdsVersion": "3.2.0",
+    "xdsBuild": 75,
+    "schemaVersion": 1,
+    "upgradeVersion": 310000000001,
+    "framework": "ext42",
+    "viewOrderMap": {
+        "view": [
+            "353f0c49-9162-4dc5-8e2d-ffb09f0d3a62"
+        ],
+        "store": [],
+        "controller": [
+            "02e19093-9c6b-4222-8b96-2632f82d7303"
+        ],
+        "model": [],
+        "resource": [
+            "efa3151d-f411-416b-a78d-276e3b22783a",
+            "1b655537-54a1-4e38-9a0c-793595ea4b0b"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}
