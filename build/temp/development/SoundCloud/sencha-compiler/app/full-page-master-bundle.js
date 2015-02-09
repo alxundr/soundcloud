@@ -1,2 +1,3 @@
 // @tag full-page
-// @require /Users/alexwong/Documents/independent-projects/SoundCloud/app.js
+// @require C:\Users\V823367\Documents\sencha-apps\soundcloud\resources\js\soundcloud.js
+// @require C:\Users\V823367\Documents\sencha-apps\soundcloud\app.js

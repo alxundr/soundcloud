@@ -28,6 +28,10 @@ Ext.define('SoundCloud.controller.Songs', {
         {
             ref: 'detailsPanel',
             selector: '#detailsPanel'
+        },
+        {
+            ref: 'playlistGrid',
+            selector: '#playlistGrid'
         }
     ],
 
@@ -37,19 +41,68 @@ Ext.define('SoundCloud.controller.Songs', {
             var grid = this.getSongsGrid();
             grid.store.load({
                 params: {
-                    q: field.getValue()
+                    q: field.getValue(),
+                    page: 1,
+                    start: 0,
+                    limit: 25
                 }
             });
         }
     },
 
     onSongsGridSelect: function(rowmodel, record, index, eOpts) {
+        var grid = this.getPlaylistGrid();
+        grid.store.add(record);
+    },
+
+    onPlaylistGridSelect: function(dataview, record, item, index, e, eOpts) {
         var detailsPanel = this.getDetailsPanel(),
             playOptions = {
-                auto_play: true
+                auto_play: true,
+                buying: false,
+                liking: false,
+                sharing: false,
+                show_comments: false
             };
         detailsPanel.update(record.data);
         SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));
+        /*SC.initialize({
+          client_id: '6c6a48a95b3175e4270cfa0027d7d3ca'
+        });
+        var grid = this.getPlaylistGrid();
+        var path = '/tracks/' + record.data.id;
+        var playOptions = {
+                onfinish: function() {
+                    console.log('tracks is done!');
+                }
+            };
+        console.log(record.data);
+        SC.stream(path , playOptions, function(sound) {
+            sound.play();
+        });*/
+    },
+
+    onPlaylistGridItemContextMenu: function(dataview, record, item, index, e, eOpts) {
+        e.stopEvent();
+
+        // if (!this.ctxMenu) {
+            this.ctxMenu = Ext.create('Ext.menu.Menu', {
+                items:[{
+                    text: 'Remove from playlist'
+                }],
+                defaults: {
+                    listeners: {
+                        click: function(item) {
+                            this.getPlaylistGrid().store.remove([record]);
+                            this.getPlaylistGrid().store.filter();
+                        },
+                        scope: this
+                    }
+                }
+            });
+        // }
+
+        this.ctxMenu.showAt(e.getXY());
     },
 
     init: function(application) {
@@ -59,6 +112,10 @@ Ext.define('SoundCloud.controller.Songs', {
             },
             "#songsGrid": {
                 select: this.onSongsGridSelect
+            },
+            "#playlistGrid": {
+                itemdblclick: this.onPlaylistGridSelect,
+                itemcontextmenu: this.onPlaylistGridItemContextMenu
             }
         });
     }

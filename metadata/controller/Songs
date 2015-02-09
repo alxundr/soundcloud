@@ -36,7 +36,10 @@
                     "    var grid = this.getSongsGrid();",
                     "    grid.store.load({",
                     "        params: {",
-                    "            q: field.getValue()",
+                    "            q: field.getValue(),",
+                    "            page: 1,",
+                    "            start: 0,",
+                    "            limit: 25",
                     "        }",
                     "    });",
                     "}"
@@ -78,12 +81,8 @@
                 "designer|targetType": "Ext.grid.Panel",
                 "fn": "onSongsGridSelect",
                 "implHandler": [
-                    "var detailsPanel = this.getDetailsPanel(),",
-                    "    playOptions = {",
-                    "        auto_play: true",
-                    "    };",
-                    "detailsPanel.update(record.data);",
-                    "SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));"
+                    "var grid = this.getPlaylistGrid();",
+                    "grid.store.add(record);"
                 ],
                 "name": "select"
             },
@@ -103,6 +102,108 @@
             },
             "name": "detailsPanel",
             "designerId": "ebf40a99-95a6-4e52-b569-dbc1facbfa15"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "playlistGrid",
+                "selector": "#playlistGrid"
+            },
+            "name": "playlistGrid",
+            "designerId": "1dc23cd9-9fa7-48d5-8ce1-daa4141ee642"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#playlistGrid",
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onPlaylistGridSelect",
+                "implHandler": [
+                    "var detailsPanel = this.getDetailsPanel(),",
+                    "    playOptions = {",
+                    "        auto_play: true,",
+                    "        buying: false,",
+                    "        liking: false,",
+                    "        sharing: false,",
+                    "        show_comments: false",
+                    "    };",
+                    "detailsPanel.update(record.data);",
+                    "SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));",
+                    "/*SC.initialize({",
+                    "  client_id: '6c6a48a95b3175e4270cfa0027d7d3ca'",
+                    "});",
+                    "var grid = this.getPlaylistGrid();",
+                    "var path = '/tracks/' + record.data.id;",
+                    "var playOptions = {",
+                    "        onfinish: function() {",
+                    "            console.log('tracks is done!');",
+                    "        }",
+                    "    };",
+                    "console.log(record.data);",
+                    "SC.stream(path , playOptions, function(sound) {",
+                    "    sound.play();",
+                    "});*/"
+                ],
+                "name": "itemdblclick"
+            },
+            "name": "onPlaylistGridSelect",
+            "designerId": "6c8e92d1-f600-4181-9e4c-4933367adffb"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#playlistGrid",
+                "designer|params": [
+                    "dataview",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onPlaylistGridItemContextMenu",
+                "implHandler": [
+                    "e.stopEvent();",
+                    "",
+                    "// if (!this.ctxMenu) {",
+                    "    this.ctxMenu = Ext.create('Ext.menu.Menu', {",
+                    "        items:[{",
+                    "            text: 'Remove from playlist'",
+                    "        }],",
+                    "        defaults: {",
+                    "            listeners: {",
+                    "                click: function(item) {",
+                    "                    this.getPlaylistGrid().store.remove([record]);",
+                    "                    this.getPlaylistGrid().store.filter();",
+                    "                },",
+                    "                scope: this",
+                    "            }",
+                    "        }",
+                    "    });",
+                    "// }",
+                    "",
+                    "this.ctxMenu.showAt(e.getXY());"
+                ],
+                "name": "itemcontextmenu"
+            },
+            "name": "onPlaylistGridItemContextMenu",
+            "designerId": "111da3a2-271b-44a8-b2ef-45d56be7714d"
         }
     ]
 }

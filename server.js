@@ -42,14 +42,30 @@ app.get('/songs', function(req, res) {
 		},
 		path = '/tracks';
 
-	path += '?' + serialize(requestOptions)
+	path += '?' + serialize(requestOptions);
 
 	SC.init(soundcloud);
 
 	SC.get(path, function(err, tracks) {  
+
 		if ( err ) {    
 			throw err;  
-		} else {    
+		} else {
+			/*var definiteTracks = [];
+			var index = 0;
+			for(var i = 0; i < tracks.length; i ++) {
+				if (tracks[i].streamable === true) {
+					definiteTracks[index] = tracks[i];
+					index++;
+				}
+			}
+			tracks = definiteTracks;*/
+			var oldDescription;
+			for(var i = 0; i < tracks.length; i ++) {
+				oldDescription = tracks[i].description;
+				// tracks[i].description = serializeDescription(oldDescription);
+				tracks[i].description = ''; 
+			}
 			res.contentType('json');
 			res.json({
 				success: true,
@@ -59,4 +75,13 @@ app.get('/songs', function(req, res) {
 		}
 	});
 });
+
+var serializeDescription = function(description) {
+	var split = description.split('\n');
+	description = '';
+	for(var i = 0; i < split.length; i++) {
+		description += split[i];
+	}
+	return description;
+};
 

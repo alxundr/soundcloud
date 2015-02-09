@@ -1,0 +1,52 @@
+/* ui mixin: grayuipanel for of type: extjs-panel-ui */
+@if $include-ext-panel-panel != false {
+  $_arch_ui-body-border-color: rgba(68,64,60,1);
+$_arch_ui-border-color: rgba(68,64,60,1);
+$_arch_ui-header-background-color: rgba(68,64,60,1);
+$_arch_ui-header-border-color: rgba(68,64,60,1);
+$_arch_ui-wrap-border-color: rgba(68,64,60,1);
+  @include extjs-panel-ui(
+    $ui-label:"grayuipanel",
+    $ui-background-stretch-bottom: $panel-background-stretch-bottom,
+    $ui-background-stretch-left: $panel-background-stretch-left,
+    $ui-background-stretch-right: $panel-background-stretch-right,
+    $ui-background-stretch-top: $panel-background-stretch-top,
+    $ui-body-background-color: $panel-body-background-color,
+    $ui-body-border-color: $_arch_ui-body-border-color,
+    $ui-body-border-style: $panel-body-border-style,
+    $ui-body-border-width: $panel-body-border-width,
+    $ui-body-color: $panel-body-color,
+    $ui-body-font-size: $panel-body-font-size,
+    $ui-body-font-weight: $panel-body-font-weight,
+    $ui-border-color: $_arch_ui-border-color,
+    $ui-border-radius: $panel-border-radius,
+    $ui-border-width: $panel-border-width,
+    $ui-header-background-color: $_arch_ui-header-background-color,
+    $ui-header-background-gradient: $panel-header-background-gradient,
+    $ui-header-border-color: $_arch_ui-header-border-color,
+    $ui-header-border-style: $panel-header-border-style,
+    $ui-header-border-width: $panel-header-border-width,
+    $ui-header-color: $panel-header-color,
+    $ui-header-font-family: $panel-header-font-family,
+    $ui-header-font-size: $panel-header-font-size,
+    $ui-header-font-weight: $panel-header-font-weight,
+    $ui-header-glyph-color: $panel-header-glyph-color,
+    $ui-header-glyph-opacity: $panel-header-glyph-opacity,
+    $ui-header-icon-background-position: $panel-header-icon-background-position,
+    $ui-header-icon-height: $panel-header-icon-height,
+    $ui-header-icon-spacing: $panel-header-icon-spacing,
+    $ui-header-icon-width: $panel-header-icon-width,
+    $ui-header-inner-border-color: $panel-header-inner-border-color,
+    $ui-header-inner-border-width: $panel-header-inner-border-width,
+    $ui-header-line-height: $panel-header-line-height,
+    $ui-header-padding: $panel-header-padding,
+    $ui-header-text-padding: $panel-header-text-padding,
+    $ui-header-text-transform: $panel-header-text-transform,
+    $ui-include-border-management-rules: $panel-include-border-management-rules,
+    $ui-padding: 0,
+    $ui-tool-background-image: $panel-tool-background-image,
+    $ui-tool-spacing: $panel-tool-spacing,
+    $ui-wrap-border-color: $_arch_ui-wrap-border-color,
+    $ui-wrap-border-width: $panel-wrap-border-width
+  );
+}

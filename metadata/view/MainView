@@ -23,6 +23,8 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|uiInterfaceName": "default",
+                "frame": true,
                 "itemId": "menuPanel",
                 "layout|region": "west",
                 "layout|split": true,
@@ -122,6 +124,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "bodyBorder": false,
                 "itemId": "contentPanel",
                 "layout": "card",
                 "layout|flex": 2,
@@ -174,7 +177,7 @@
                                         "designer|displayName": "searchField",
                                         "fieldLabel": "Search:",
                                         "itemId": "searchfield",
-                                        "layout|flex": null
+                                        "layout|flex": 2
                                     },
                                     "name": "MyTextField",
                                     "designerId": "4c0e843d-9024-4b1b-b2e2-da2932a9e77d"
@@ -301,15 +304,69 @@
             },
             "codeClass": null,
             "userConfig": {
+                "bodyBorder": true,
+                "designer|createAlias": null,
                 "designer|displayName": "playlistPanel",
+                "designer|uiInterfaceName": "grayuipanel",
                 "itemId": "playlistPanel",
                 "layout|flex": 2,
                 "layout|region": "east",
                 "title": "Playlist",
+                "ui": "grayuipanel",
                 "width": 150
             },
             "name": "MyPanel7",
-            "designerId": "a52185f8-714d-4f1c-bf44-782563268032"
+            "designerId": "a52185f8-714d-4f1c-bf44-782563268032",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "playlistGrid",
+                        "itemId": "playlistGrid",
+                        "store": "Playlist",
+                        "title": null
+                    },
+                    "name": "MyGridPanel1",
+                    "designerId": "e7c3420c-6e60-4718-88a4-a6f57e2904c8",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "title",
+                                "flex": 1,
+                                "text": "Title"
+                            },
+                            "name": "MyColumn",
+                            "designerId": "95c4fe05-6b98-43bf-a09f-690b8478aeca"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "permalink_url",
+                                "flex": 1,
+                                "text": "Permalink Url"
+                            },
+                            "name": "MyColumn2",
+                            "designerId": "54431f89-8275-4f54-8359-da47a0914dfb"
+                        }
+                    ]
+                }
+            ]
         },
         {
             "type": "Ext.panel.Panel",
@@ -321,6 +378,7 @@
             "userConfig": {
                 "container|align": "stretch",
                 "designer|displayName": "detailsPanel",
+                "designer|uiInterfaceName": "default",
                 "height": 150,
                 "itemId": "detailsPanel",
                 "layout": "vbox",

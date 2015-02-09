@@ -39,6 +39,7 @@ Ext.define('SoundCloud.view.MainView', {
                     xtype: 'panel',
                     region: 'west',
                     split: true,
+                    frame: true,
                     itemId: 'menuPanel',
                     width: 150,
                     title: 'Menu',
@@ -79,6 +80,7 @@ Ext.define('SoundCloud.view.MainView', {
                     region: 'center',
                     itemId: 'contentPanel',
                     layout: 'card',
+                    bodyBorder: false,
                     items: [
                         {
                             xtype: 'panel',
@@ -93,6 +95,7 @@ Ext.define('SoundCloud.view.MainView', {
                                     items: [
                                         {
                                             xtype: 'textfield',
+                                            flex: 2,
                                             itemId: 'searchfield',
                                             fieldLabel: 'Search:'
                                         }
@@ -165,8 +168,31 @@ Ext.define('SoundCloud.view.MainView', {
                     flex: 2,
                     region: 'east',
                     itemId: 'playlistPanel',
+                    ui: 'grayuipanel',
                     width: 150,
-                    title: 'Playlist'
+                    bodyBorder: true,
+                    title: 'Playlist',
+                    items: [
+                        {
+                            xtype: 'gridpanel',
+                            itemId: 'playlistGrid',
+                            store: 'Playlist',
+                            columns: [
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'title',
+                                    text: 'Title',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'permalink_url',
+                                    text: 'Permalink Url',
+                                    flex: 1
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     xtype: 'panel',
