@@ -26,6 +26,12 @@ Ext.define('SoundCloud.model.Song', {
         },
         {
             name: 'permalink_url'
+        },
+        {
+            name: 'genre'
+        },
+        {
+            name: 'duration'
         }
     ]
 });

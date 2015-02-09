@@ -42,12 +42,17 @@ Ext.define('SoundCloud.view.MainView', {
                     frame: true,
                     itemId: 'menuPanel',
                     width: 150,
+                    collapseDirection: 'left',
+                    collapsed: true,
+                    collapsible: true,
                     title: 'Menu',
                     items: [
                         {
                             xtype: 'menu',
                             floating: false,
                             itemId: 'menu',
+                            collapseFirst: false,
+                            collapsible: false,
                             items: [
                                 {
                                     xtype: 'menuitem',
@@ -182,12 +187,13 @@ Ext.define('SoundCloud.view.MainView', {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'title',
                                     text: 'Title',
-                                    flex: 1
+                                    flex: 4
                                 },
                                 {
                                     xtype: 'gridcolumn',
-                                    dataIndex: 'permalink_url',
-                                    text: 'Permalink Url',
+                                    align: 'right',
+                                    dataIndex: 'duration',
+                                    text: 'Duration',
                                     flex: 1
                                 }
                             ]

@@ -51,20 +51,14 @@ app.get('/songs', function(req, res) {
 		if ( err ) {    
 			throw err;  
 		} else {
-			/*var definiteTracks = [];
-			var index = 0;
-			for(var i = 0; i < tracks.length; i ++) {
-				if (tracks[i].streamable === true) {
-					definiteTracks[index] = tracks[i];
-					index++;
-				}
-			}
-			tracks = definiteTracks;*/
 			var oldDescription;
+			var oldDuration;
 			for(var i = 0; i < tracks.length; i ++) {
 				oldDescription = tracks[i].description;
 				// tracks[i].description = serializeDescription(oldDescription);
 				tracks[i].description = ''; 
+				oldDuration = tracks[i].duration;
+				tracks[i].duration = convertMS(oldDuration);
 			}
 			res.contentType('json');
 			res.json({
@@ -85,3 +79,28 @@ var serializeDescription = function(description) {
 	return description;
 };
 
+var convertMS = function(ms) {
+    var h, m, s;
+    s = Math.floor(ms / 1000);
+    m = Math.floor(s / 60);
+    s = s % 60;
+    var seconds = '' + s;
+    if (s < 10) {
+  		seconds = '0' + s;
+    }
+    h = Math.floor(m / 60);
+    m = m % 60;
+    h = h % 24;
+    var minutes = '' + m;
+    var hours = '' + h;
+    var display;
+    if (h === 0) {
+  		display = minutes + ':' + seconds; 
+    } else {
+    	if (m < 10) {
+    		minutes = '0' + m;
+    	}
+    	display = hours + ':' + minutes + ':' + seconds;
+    }  
+    return display;
+};

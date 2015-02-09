@@ -36,6 +36,32 @@
             },
             "name": "MyField1",
             "designerId": "3229170e-9d58-4677-982a-d9e6779c16ad"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "genre"
+            },
+            "name": "MyField2",
+            "designerId": "b456cb6c-ba79-4ab1-ab6a-23be4f1fa085"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "duration"
+            },
+            "name": "MyField3",
+            "designerId": "fb166d7c-96ba-402a-b450-1369a696cddd"
         }
     ]
 }

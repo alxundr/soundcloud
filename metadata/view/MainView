@@ -23,6 +23,9 @@
             },
             "codeClass": null,
             "userConfig": {
+                "collapseDirection": "left",
+                "collapsed": true,
+                "collapsible": true,
                 "designer|uiInterfaceName": "default",
                 "frame": true,
                 "itemId": "menuPanel",
@@ -42,8 +45,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "collapseDirection": null,
+                        "collapseFirst": false,
+                        "collapsible": false,
                         "floating": false,
                         "itemId": "menu",
+                        "title": null,
                         "width": null
                     },
                     "name": "MyMenu",
@@ -343,11 +350,11 @@
                             "codeClass": null,
                             "userConfig": {
                                 "dataIndex": "title",
-                                "flex": 1,
+                                "flex": 4,
                                 "text": "Title"
                             },
-                            "name": "MyColumn",
-                            "designerId": "95c4fe05-6b98-43bf-a09f-690b8478aeca"
+                            "name": "MyColumn3",
+                            "designerId": "e4bb6cd8-91fc-420b-bc66-cef3ee9958f3"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -357,12 +364,13 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "permalink_url",
+                                "align": "right",
+                                "dataIndex": "duration",
                                 "flex": 1,
-                                "text": "Permalink Url"
+                                "text": "Duration"
                             },
-                            "name": "MyColumn2",
-                            "designerId": "54431f89-8275-4f54-8359-da47a0914dfb"
+                            "name": "MyColumn4",
+                            "designerId": "f4ef63e0-55d1-4e9c-b2e9-06fe315a72bc"
                         }
                     ]
                 }

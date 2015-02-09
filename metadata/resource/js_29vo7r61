@@ -1,0 +1,15 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js_29vo7r61",
+        "url": "/resources/js/soundcloud_player.js",
+        "x-compile": true
+    },
+    "name": "js1",
+    "designerId": "ef3df0ea-958a-4eb1-9fa2-5e835f06baa8"
+}
