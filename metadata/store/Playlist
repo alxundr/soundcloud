@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Playlist",
+        "model": "Song",
+        "storeId": "Playlist"
+    },
+    "name": "MyStore",
+    "designerId": "fe79c2f6-7d87-42e0-ac3e-4f06e0619aca"
+}

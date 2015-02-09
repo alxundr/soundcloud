@@ -21,10 +21,10 @@ Ext.define('SoundCloud.view.MainView', {
         'Ext.menu.Menu',
         'Ext.menu.Item',
         'Ext.form.field.Text',
-        'Ext.XTemplate',
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
-        'Ext.toolbar.Paging'
+        'Ext.toolbar.Paging',
+        'Ext.XTemplate'
     ],
 
     itemId: 'mainView',
@@ -55,8 +55,8 @@ Ext.define('SoundCloud.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    itemId: 'about',
-                                    text: 'About Us'
+                                    itemId: 'artists',
+                                    text: 'Artists'
                                 },
                                 {
                                     xtype: 'menuitem',
@@ -75,6 +75,7 @@ Ext.define('SoundCloud.view.MainView', {
                 },
                 {
                     xtype: 'panel',
+                    flex: 2,
                     region: 'center',
                     itemId: 'contentPanel',
                     layout: 'card',
@@ -101,21 +102,6 @@ Ext.define('SoundCloud.view.MainView', {
                             items: [
                                 {
                                     xtype: 'panel',
-                                    flex: 1,
-                                    region: 'east',
-                                    itemId: 'detailsPanel',
-                                    tpl: [
-                                        '<div id=\'player\'>',
-                                        '</div>'
-                                    ],
-                                    width: 150,
-                                    layout: {
-                                        type: 'vbox',
-                                        align: 'stretch'
-                                    }
-                                },
-                                {
-                                    xtype: 'panel',
                                     region: 'center',
                                     layout: {
                                         type: 'vbox',
@@ -126,19 +112,15 @@ Ext.define('SoundCloud.view.MainView', {
                                             xtype: 'gridpanel',
                                             flex: 1,
                                             itemId: 'songsGrid',
+                                            width: 904,
                                             store: 'Songs',
                                             columns: [
                                                 {
                                                     xtype: 'gridcolumn',
                                                     width: 242,
                                                     dataIndex: 'title',
-                                                    text: 'Title'
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    width: 536,
-                                                    dataIndex: 'permalink_url',
-                                                    text: 'Permalink Url'
+                                                    text: 'Title',
+                                                    flex: 1
                                                 }
                                             ]
                                         }
@@ -146,6 +128,7 @@ Ext.define('SoundCloud.view.MainView', {
                                     dockedItems: [
                                         {
                                             xtype: 'pagingtoolbar',
+                                            flex: 1,
                                             dock: 'bottom',
                                             itemId: 'pagingtoolbar',
                                             displayInfo: true,
@@ -157,8 +140,8 @@ Ext.define('SoundCloud.view.MainView', {
                         },
                         {
                             xtype: 'panel',
-                            itemId: 'aboutPanel',
-                            title: 'About Us',
+                            itemId: 'artistsPanel',
+                            title: 'Artists',
                             layout: {
                                 type: 'vbox',
                                 align: 'center',
@@ -176,6 +159,29 @@ Ext.define('SoundCloud.view.MainView', {
                             }
                         }
                     ]
+                },
+                {
+                    xtype: 'panel',
+                    flex: 2,
+                    region: 'east',
+                    itemId: 'playlistPanel',
+                    width: 150,
+                    title: 'Playlist'
+                },
+                {
+                    xtype: 'panel',
+                    flex: 1,
+                    region: 'south',
+                    height: 150,
+                    itemId: 'detailsPanel',
+                    tpl: [
+                        '<div id=\'player\'>',
+                        '</div>'
+                    ],
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    }
                 }
             ]
         });

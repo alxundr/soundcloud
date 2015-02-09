@@ -71,8 +71,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "href": null,
-                                "itemId": "about",
-                                "text": "About Us"
+                                "itemId": "artists",
+                                "text": "Artists"
                             },
                             "name": "MyMenuItem1",
                             "designerId": "a9c5c2c5-e485-4719-a39d-1f3df3d72393"
@@ -124,6 +124,7 @@
             "userConfig": {
                 "itemId": "contentPanel",
                 "layout": "card",
+                "layout|flex": 2,
                 "layout|region": "center",
                 "title": null
             },
@@ -189,45 +190,6 @@
                             "codeClass": null,
                             "userConfig": {
                                 "container|align": "stretch",
-                                "designer|displayName": "detailsPanel",
-                                "itemId": "detailsPanel",
-                                "layout": "vbox",
-                                "layout|flex": 1,
-                                "layout|region": "east",
-                                "title": null,
-                                "width": 150
-                            },
-                            "name": "MyPanel",
-                            "designerId": "d3a68240-bc90-4df2-b736-b8938e21b8f9",
-                            "cn": [
-                                {
-                                    "type": "Ext.XTemplate",
-                                    "reference": {
-                                        "name": "tpl",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|displayName": "tpl",
-                                        "implHandler": [
-                                            "<div id='player'>",
-                                            "</div>"
-                                        ]
-                                    },
-                                    "name": "tpl",
-                                    "designerId": "124f3013-9e3d-4849-8a15-26468711a78b"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.panel.Panel",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "container|align": "stretch",
                                 "designer|displayName": "centerPanel",
                                 "layout": "vbox",
                                 "layout|region": "center",
@@ -248,7 +210,8 @@
                                         "itemId": "songsGrid",
                                         "layout|flex": 1,
                                         "store": "Songs",
-                                        "title": null
+                                        "title": null,
+                                        "width": 904
                                     },
                                     "name": "MyGridPanel",
                                     "designerId": "b4cb41cb-a58e-4ff3-9627-231137d48f4d",
@@ -262,26 +225,12 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "dataIndex": "title",
+                                                "flex": 1,
                                                 "text": "Title",
                                                 "width": 242
                                             },
                                             "name": "MyColumn1",
                                             "designerId": "0b0184b9-2bbe-4e9e-830c-97d0f86643d5"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "permalink_url",
-                                                "text": "Permalink Url",
-                                                "width": 536
-                                            },
-                                            "name": "MyColumn2",
-                                            "designerId": "a4dd0676-e0d2-44ad-b55d-d937224608bd"
                                         }
                                     ]
                                 },
@@ -297,6 +246,7 @@
                                         "displayInfo": true,
                                         "dock": "bottom",
                                         "itemId": "pagingtoolbar",
+                                        "layout|flex": 1,
                                         "store": "Songs"
                                     },
                                     "name": "MyPagingToolbar",
@@ -316,9 +266,10 @@
                     "userConfig": {
                         "container|align": "center",
                         "container|pack": "center",
-                        "itemId": "aboutPanel",
+                        "designer|displayName": "artistsPanel",
+                        "itemId": "artistsPanel",
                         "layout": "vbox",
-                        "title": "About Us"
+                        "title": "Artists"
                     },
                     "name": "MyPanel4",
                     "designerId": "daf95a82-9e4f-4afd-b806-c2cc1b902fad"
@@ -339,6 +290,63 @@
                     },
                     "name": "MyPanel5",
                     "designerId": "bdce8a33-1e17-42fa-bdbd-f2e50d0d22da"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "playlistPanel",
+                "itemId": "playlistPanel",
+                "layout|flex": 2,
+                "layout|region": "east",
+                "title": "Playlist",
+                "width": 150
+            },
+            "name": "MyPanel7",
+            "designerId": "a52185f8-714d-4f1c-bf44-782563268032"
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "designer|displayName": "detailsPanel",
+                "height": 150,
+                "itemId": "detailsPanel",
+                "layout": "vbox",
+                "layout|flex": 1,
+                "layout|region": "south",
+                "title": null
+            },
+            "name": "MyPanel",
+            "designerId": "d3a68240-bc90-4df2-b736-b8938e21b8f9",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "tpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "tpl",
+                        "implHandler": [
+                            "<div id='player'>",
+                            "</div>"
+                        ]
+                    },
+                    "name": "tpl",
+                    "designerId": "124f3013-9e3d-4849-8a15-26468711a78b"
                 }
             ]
         }

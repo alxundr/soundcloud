@@ -44,9 +44,12 @@ Ext.define('SoundCloud.controller.Songs', {
     },
 
     onSongsGridSelect: function(rowmodel, record, index, eOpts) {
-        var detailsPanel = this.getDetailsPanel();
+        var detailsPanel = this.getDetailsPanel(),
+            playOptions = {
+                auto_play: true
+            };
         detailsPanel.update(record.data);
-        SC.oEmbed(record.data.permalink_url, document.getElementById('player'));
+        SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));
     },
 
     init: function(application) {

@@ -26,7 +26,8 @@
         "projectHasEnabledWebServer": false,
         "lockUrlPrefix": false,
         "installStatus": "Not Installed",
-        "displayfield-ExtBox1-1204-inputEl": "a new version of the framework is available"
+        "displayfield-ExtBox1-1204-inputEl": "a new version of the framework is available",
+        "displayfield-ExtBox1-1122-inputEl": "a new version of the framework is available"
     },
     "xdsVersion": "3.2.0",
     "xdsBuild": 75,
@@ -38,7 +39,8 @@
             "353f0c49-9162-4dc5-8e2d-ffb09f0d3a62"
         ],
         "store": [
-            "66fc24a6-ee87-4400-a65e-3df99f9e6c55"
+            "66fc24a6-ee87-4400-a65e-3df99f9e6c55",
+            "fe79c2f6-7d87-42e0-ac3e-4f06e0619aca"
         ],
         "controller": [
             "02e19093-9c6b-4222-8b96-2632f82d7303",

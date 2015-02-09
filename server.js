@@ -9,6 +9,8 @@ var soundcloud = {
 	uri: 'http://127.0.0.1:9003/'
 };
 
+var query;
+
 var serialize = function(obj) {
   var str = [];
   for(var p in obj)
@@ -30,10 +32,12 @@ app.listen(port, function() {
 });
 
 app.get('/songs', function(req, res) {
-	
+	if (req.query.q !== undefined) {
+		query = req.query.q;
+	}
 	var requestOptions = {
-			q: req.query.q,
-			limit: 25,
+			q: query,		
+			limit: req.query.limit,
 			offset: req.query.start
 		},
 		path = '/tracks';

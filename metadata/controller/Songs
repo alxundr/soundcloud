@@ -78,9 +78,12 @@
                 "designer|targetType": "Ext.grid.Panel",
                 "fn": "onSongsGridSelect",
                 "implHandler": [
-                    "var detailsPanel = this.getDetailsPanel();",
-                    "detailsPanel.update(record.data); ",
-                    "SC.oEmbed(record.data.permalink_url, document.getElementById('player'));"
+                    "var detailsPanel = this.getDetailsPanel(),",
+                    "    playOptions = {",
+                    "        auto_play: true",
+                    "    };",
+                    "detailsPanel.update(record.data);",
+                    "SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));"
                 ],
                 "name": "select"
             },

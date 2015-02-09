@@ -14,6 +14,9 @@
             "Song"
         ],
         "name": "SoundCloud",
+        "stores": [
+            "Playlist"
+        ],
         "views": [
             "MainView"
         ]
