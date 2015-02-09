@@ -16,6 +16,29 @@
 Ext.define('SoundCloud.controller.Songs', {
     extend: 'Ext.app.Controller',
 
+    statics: {
+        playTrack: function(record) {
+            SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));
+
+            setTimeout(function(){
+                var widgetIframe = document.getElementById('player').getElementsByTagName('iframe')[0];
+                var widget  = SC.Widget(widgetIframe);
+
+                widget.bind(SC.Widget.Events.READY, function() {
+                    console.log('entro ready');
+                    widget.bind(SC.Widget.Events.PLAY, function() {
+                        // get information about currently playing sound
+                        console.log('track started');
+                    });
+                    widget.bind(SC.Widget.Events.FINISH, function() {
+                        console.log('track finished');
+                    });
+                });
+
+            },2000);
+        }
+    },
+
     stores: [
         'Songs'
     ],
@@ -64,25 +87,9 @@ Ext.define('SoundCloud.controller.Songs', {
                 sharing: false,
                 show_comments: false
             };
-        detailsPanel.update(record.data);
-        SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));
-
-        setTimeout(function(){
-            var widgetIframe = document.getElementById('player').getElementsByTagName('iframe')[0];
-            var widget  = SC.Widget(widgetIframe);
-
-            widget.bind(SC.Widget.Events.READY, function() {
-                console.log('entro ready');
-                widget.bind(SC.Widget.Events.PLAY, function() {
-                    // get information about currently playing sound
-                    console.log('track started');
-                });
-                widget.bind(SC.Widget.Events.FINISH, function() {
-                    console.log('track finished');
-                });
-            });
-
-        },2000);
+        var grid = this.getPlaylistGrid();
+        console.log('index of record: ' + grid.store.data.indexOf(record));
+        playTrack(record);
 
     },
 

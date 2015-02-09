@@ -137,25 +137,9 @@
                     "        sharing: false,",
                     "        show_comments: false",
                     "    };",
-                    "detailsPanel.update(record.data);",
-                    "SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));",
-                    "",
-                    "setTimeout(function(){",
-                    "    var widgetIframe = document.getElementById('player').getElementsByTagName('iframe')[0];",
-                    "    var widget  = SC.Widget(widgetIframe);",
-                    "",
-                    "    widget.bind(SC.Widget.Events.READY, function() {",
-                    "        console.log('entro ready');",
-                    "        widget.bind(SC.Widget.Events.PLAY, function() {",
-                    "            // get information about currently playing sound",
-                    "            console.log('track started');",
-                    "        });",
-                    "        widget.bind(SC.Widget.Events.FINISH, function() {",
-                    "            console.log('track finished');",
-                    "        });",
-                    "    });",
-                    "",
-                    "},2000);",
+                    "var grid = this.getPlaylistGrid();",
+                    "console.log('index of record: ' + grid.store.data.indexOf(record));",
+                    "playTrack(record);",
                     ""
                 ],
                 "name": "itemdblclick"
@@ -205,6 +189,42 @@
             },
             "name": "onPlaylistGridItemContextMenu",
             "designerId": "111da3a2-271b-44a8-b2ef-45d56be7714d"
+        },
+        {
+            "type": "staticfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "playTrack",
+                "implHandler": [
+                    "SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));",
+                    "",
+                    "setTimeout(function(){",
+                    "    var widgetIframe = document.getElementById('player').getElementsByTagName('iframe')[0];",
+                    "    var widget  = SC.Widget(widgetIframe);",
+                    "",
+                    "    widget.bind(SC.Widget.Events.READY, function() {",
+                    "        console.log('entro ready');",
+                    "        widget.bind(SC.Widget.Events.PLAY, function() {",
+                    "            // get information about currently playing sound",
+                    "            console.log('track started');",
+                    "        });",
+                    "        widget.bind(SC.Widget.Events.FINISH, function() {",
+                    "            console.log('track finished');",
+                    "        });",
+                    "    });",
+                    "",
+                    "},2000);"
+                ]
+            },
+            "name": "playTrack",
+            "designerId": "54e858f0-6899-4219-9f21-920a91838422"
         }
     ]
 }
