@@ -7,13 +7,12 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": false,
-        "designer|userClassName": "Songs",
+        "designer|userClassName": "GenreList",
         "model": "Song",
-        "pageSize": 25,
-        "storeId": "Songs"
+        "storeId": "GenreList"
     },
     "name": "MyJsonStore",
-    "designerId": "66fc24a6-ee87-4400-a65e-3df99f9e6c55",
+    "designerId": "4a54e0d3-f587-450e-a2e1-c86352631702",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -23,11 +22,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|displayName": "songsProxy",
-                "url": "/songs"
+                "designer|displayName": "genreListProxy",
+                "url": "/genres"
             },
-            "name": "MyAjaxProxy",
-            "designerId": "86d4df86-854f-428b-9efc-4af79be71d07",
+            "name": "MyAjaxProxy1",
+            "designerId": "546bdcc6-8495-49b1-bf40-a5d18d587cea",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -37,12 +36,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "designer|displayName": "songsReader",
+                        "designer|displayName": "genreListReader",
                         "root": "data",
                         "totalProperty": "totalSongs"
                     },
-                    "name": "MyJsonReader",
-                    "designerId": "2e94805b-fb79-4d22-a33c-24b785a23ec8"
+                    "name": "MyJsonReader1",
+                    "designerId": "32809887-0cfd-49cf-9015-471c03a231fe"
                 }
             ]
         }

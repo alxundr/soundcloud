@@ -15,12 +15,34 @@
         ],
         "name": "SoundCloud",
         "stores": [
-            "Playlist"
+            "Playlist",
+            "GenreList"
         ],
         "views": [
             "MainView"
         ]
     },
     "name": "Application",
-    "designerId": "application"
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "SC.initialize({",
+                    "  client_id: '6c6a48a95b3175e4270cfa0027d7d3ca',",
+                    "  redirect_uri: 'http://127.0.0.1:9003/'",
+                    "});"
+                ]
+            },
+            "name": "launch",
+            "designerId": "661f9d2d-788c-46d1-b62d-482a02cd5aca"
+        }
+    ]
 }

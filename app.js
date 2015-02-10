@@ -24,7 +24,8 @@ Ext.application({
         'Song'
     ],
     stores: [
-        'Playlist'
+        'Playlist',
+        'GenreList'
     ],
     views: [
         'MainView'
@@ -37,6 +38,10 @@ Ext.application({
 
     launch: function() {
         Ext.create('SoundCloud.view.MainView');
+        SC.initialize({
+          client_id: '6c6a48a95b3175e4270cfa0027d7d3ca',
+          redirect_uri: 'http://127.0.0.1:9003/'
+        });
     }
 
 });

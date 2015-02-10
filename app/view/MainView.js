@@ -24,6 +24,10 @@ Ext.define('SoundCloud.view.MainView', {
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
         'Ext.toolbar.Paging',
+        'Ext.button.Button',
+        'Ext.grid.View',
+        'Ext.grid.plugin.DragDrop',
+        'Ext.util.Point',
         'Ext.XTemplate'
     ],
 
@@ -61,13 +65,13 @@ Ext.define('SoundCloud.view.MainView', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    itemId: 'artists',
-                                    text: 'Artists'
+                                    itemId: 'upload',
+                                    text: 'Upload'
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    itemId: 'contact',
-                                    text: 'Contact us'
+                                    itemId: 'genres',
+                                    text: 'Genres'
                                 }
                             ],
                             listeners: {
@@ -148,23 +152,83 @@ Ext.define('SoundCloud.view.MainView', {
                         },
                         {
                             xtype: 'panel',
-                            itemId: 'artistsPanel',
-                            title: 'Artists',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            }
+                            itemId: 'uploadPanel',
+                            layout: 'border',
+                            title: 'Upload',
+                            dockedItems: [
+                                {
+                                    xtype: 'toolbar',
+                                    dock: 'top',
+                                    items: [
+                                        {
+                                            xtype: 'button',
+                                            itemId: 'connectbtn',
+                                            text: 'connect'
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             xtype: 'panel',
-                            itemId: 'contactPanel',
-                            title: 'Contact Us',
-                            layout: {
-                                type: 'vbox',
-                                align: 'center',
-                                pack: 'center'
-                            }
+                            itemId: 'genresPanel',
+                            layout: 'accordion',
+                            title: 'Genres',
+                            items: [
+                                {
+                                    xtype: 'panel',
+                                    itemId: 'electronicPanel',
+                                    width: 100,
+                                    collapsed: true,
+                                    title: 'Electronic',
+                                    items: [
+                                        {
+                                            xtype: 'gridpanel',
+                                            itemId: 'electronicGrid',
+                                            title: '',
+                                            store: 'GenreList',
+                                            columns: [
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'title',
+                                                    text: 'Title',
+                                                    flex: 1
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    dockedItems: [
+                                        {
+                                            xtype: 'pagingtoolbar',
+                                            dock: 'bottom',
+                                            width: 360,
+                                            displayInfo: true,
+                                            store: 'GenreList'
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'panel',
+                                    itemId: 'rockPanel',
+                                    width: 100,
+                                    title: 'Rock',
+                                    items: [
+                                        {
+                                            xtype: 'gridpanel',
+                                            itemId: 'rockGrid',
+                                            store: 'GenreList',
+                                            columns: [
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'title',
+                                                    text: 'Title',
+                                                    flex: 1
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -196,7 +260,16 @@ Ext.define('SoundCloud.view.MainView', {
                                     text: 'Duration',
                                     flex: 1
                                 }
-                            ]
+                            ],
+                            viewConfig: {
+                                itemId: 'playlistview',
+                                plugins: [
+                                    Ext.create('Ext.grid.plugin.DragDrop', {
+                                        dragGroup: 'playlistGridDDGroup',
+                                        dragText: '{0} selected track{1}'
+                                    })
+                                ]
+                            }
                         }
                     ]
                 },
@@ -204,7 +277,7 @@ Ext.define('SoundCloud.view.MainView', {
                     xtype: 'panel',
                     flex: 1,
                     region: 'south',
-                    height: 150,
+                    height: 100,
                     itemId: 'detailsPanel',
                     tpl: [
                         '<div id=\'player\'>',

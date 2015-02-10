@@ -6,7 +6,7 @@ var express = require('express'),
 var soundcloud = {
 	id: '6c6a48a95b3175e4270cfa0027d7d3ca',
 	secret: '7d0396bdb0de05310f1882bbddfc96ab',
-	uri: 'http://127.0.0.1:9003/'
+	uri: 'http://127.0.0.1:9003/#upload'
 };
 
 var query;
@@ -25,6 +25,7 @@ app.configure(function() {
     app.use(express.bodyParser());    
     app.use(app.router);
   	app.use(express.static(__dirname + '/'));
+  	SC.init(soundcloud);
 });
 
 app.listen(port, function() {
@@ -42,9 +43,7 @@ app.get('/songs', function(req, res) {
 		},
 		path = '/tracks';
 
-	path += '?' + serialize(requestOptions);
-
-	SC.init(soundcloud);
+	path += '?' + serialize(requestOptions);	
 
 	SC.get(path, function(err, tracks) {  
 
@@ -65,6 +64,43 @@ app.get('/songs', function(req, res) {
 				success: true,
 				data: tracks,
 				totalSongs : 100
+			});
+		}
+	});
+});
+
+app.get('/genres', function(req, res) {
+	if (req.query.q !== undefined) {
+		query = req.query.q;
+	}
+	var requestOptions = {
+			genres: query,		
+			limit: req.query.limit,
+			offset: req.query.start
+		},
+		path = '/tracks';
+
+	path += '?' + serialize(requestOptions);	
+
+	SC.get(path, function(err, tracks) {  
+
+		if ( err ) {    
+			throw err;  
+		} else {
+			var oldDescription;
+			var oldDuration;
+			for(var i = 0; i < tracks.length; i ++) {
+				oldDescription = tracks[i].description;
+				// tracks[i].description = serializeDescription(oldDescription);
+				tracks[i].description = ''; 
+				oldDuration = tracks[i].duration;
+				tracks[i].duration = convertMS(oldDuration);
+			}
+			res.contentType('json');
+			res.json({
+				success: true,
+				data: tracks,
+				totalSongs : 1000
 			});
 		}
 	});

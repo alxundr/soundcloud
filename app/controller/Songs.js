@@ -32,6 +32,18 @@ Ext.define('SoundCloud.controller.Songs', {
         {
             ref: 'playlistGrid',
             selector: '#playlistGrid'
+        },
+        {
+            ref: 'electronicGrid',
+            selector: '#electronicGrid'
+        },
+        {
+            ref: 'rockGrid',
+            selector: '#rockGrid'
+        },
+        {
+            ref: 'rockPanel',
+            selector: '#rockPanel'
         }
     ],
 
@@ -51,16 +63,12 @@ Ext.define('SoundCloud.controller.Songs', {
     },
 
     onSongsGridSelect: function(rowmodel, record, index, eOpts) {
-        var grid = this.getPlaylistGrid();
-        grid.store.add(record);
-        /*if (grid.store.data.length === 1) {
-            this.playTrack(record);
-            grid.getSelectionModel().select(record,true,false);
-        }*/
+        this.addToPlaylist(record);
     },
 
     onPlaylistGridSelect: function(dataview, record, item, index, e, eOpts) {
         this.playTrack(record);
+
     },
 
     onPlaylistGridItemContextMenu: function(dataview, record, item, index, e, eOpts) {
@@ -83,6 +91,46 @@ Ext.define('SoundCloud.controller.Songs', {
         this.ctxMenu.showAt(e.getXY());
     },
 
+    onConnectbtnClick: function(button, e, eOpts) {
+        SC.connect(function() {
+          SC.get('/me', function(me) {
+            console.log('Hello, ' + me.username);
+          });
+        });
+    },
+
+    onElectronicPanelExpand: function(p, eOpts) {
+        var grid = this.getElectronicGrid();
+        grid.store.load({
+            params: {
+                q: 'electronic',
+                page: 1,
+                start: 0,
+                limit: 25
+            }
+        });
+    },
+
+    onElectronicGridSelect: function(rowmodel, record, index, eOpts) {
+        this.addToPlaylist(record);
+    },
+
+    onRockGridSelect: function(rowmodel, record, index, eOpts) {
+        this.addToPlaylist(record);
+    },
+
+    onRockPanelExpand: function(p, eOpts) {
+        var grid = this.getRockGrid();
+        grid.store.load({
+            params: {
+                q: 'rock',
+                page: 1,
+                start: 0,
+                limit: 25
+            }
+        });
+    },
+
     playTrack: function(record) {
         var detailsPanel = this.getDetailsPanel(),
             playOptions = {
@@ -98,6 +146,8 @@ Ext.define('SoundCloud.controller.Songs', {
 
         SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));
 
+        var me = this;
+
         setTimeout(function(){
 
             var widgetIframe = document.getElementById('player').getElementsByTagName('iframe')[0];
@@ -108,14 +158,25 @@ Ext.define('SoundCloud.controller.Songs', {
                     console.log('track finished');
 
                     var nextIndex = grid.store.data.indexOf(record) + 1;
-                    record = grid.store.data.items[nextIndex];
-                    detailsPanel.update(record.data);
-                    SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));
-                    grid.getSelectionModel().select(record,true,false);
+                    if (nextIndex < grid.store.data.length) {
+                        record = grid.store.data.items[nextIndex];
+                        grid.getSelectionModel().select(record,true,false);
+                        me.playTrack(record);
+                    }
+
                 });
             });
 
         },2000);
+    },
+
+    addToPlaylist: function(record) {
+        var grid = this.getPlaylistGrid();
+        grid.store.add(record);
+        /*if (grid.store.data.length === 1) {
+                    this.playTrack(record);
+                    grid.getSelectionModel().select(record,true,false);
+                }*/
     },
 
     init: function(application) {
@@ -129,6 +190,21 @@ Ext.define('SoundCloud.controller.Songs', {
             "#playlistGrid": {
                 itemdblclick: this.onPlaylistGridSelect,
                 itemcontextmenu: this.onPlaylistGridItemContextMenu
+            },
+            "#connectbtn": {
+                click: this.onConnectbtnClick
+            },
+            "#electronicPanel": {
+                expand: this.onElectronicPanelExpand
+            },
+            "#electronicGrid": {
+                select: this.onElectronicGridSelect
+            },
+            "#rockGrid": {
+                select: this.onRockGridSelect
+            },
+            "#rockPanel": {
+                expand: this.onRockPanelExpand
             }
         });
     }

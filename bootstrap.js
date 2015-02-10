@@ -860,6 +860,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "SoundCloud.controller.Navigation": [],
   "SoundCloud.controller.Songs": [],
   "SoundCloud.model.Song": [],
+  "SoundCloud.store.GenreList": [],
   "SoundCloud.store.Playlist": [],
   "SoundCloud.store.Songs": [],
   "SoundCloud.view.MainView": []
@@ -1870,6 +1871,7 @@ Ext.ClassManager.addNameAliasMappings({
   "SoundCloud.controller.Navigation": [],
   "SoundCloud.controller.Songs": [],
   "SoundCloud.model.Song": [],
+  "SoundCloud.store.GenreList": [],
   "SoundCloud.store.Playlist": [],
   "SoundCloud.store.Songs": [],
   "SoundCloud.view.MainView": [

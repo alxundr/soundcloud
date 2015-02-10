@@ -81,8 +81,7 @@
                 "designer|targetType": "Ext.grid.Panel",
                 "fn": "onSongsGridSelect",
                 "implHandler": [
-                    "var grid = this.getPlaylistGrid();",
-                    "grid.store.add(record);"
+                    "this.addToPlaylist(record);"
                 ],
                 "name": "select"
             },
@@ -129,17 +128,7 @@
                 "designer|targetType": "Ext.grid.Panel",
                 "fn": "onPlaylistGridSelect",
                 "implHandler": [
-                    "var detailsPanel = this.getDetailsPanel(),",
-                    "    playOptions = {",
-                    "        auto_play: true,",
-                    "        buying: false,",
-                    "        liking: false,",
-                    "        sharing: false,",
-                    "        show_comments: false",
-                    "    };",
-                    "var grid = this.getPlaylistGrid();",
-                    "console.log('index of record: ' + grid.store.data.indexOf(record));",
-                    "playTrack(record);",
+                    "this.playTrack(record);",
                     ""
                 ],
                 "name": "itemdblclick"
@@ -191,7 +180,7 @@
             "designerId": "111da3a2-271b-44a8-b2ef-45d56be7714d"
         },
         {
-            "type": "staticfunction",
+            "type": "basicfunction",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -203,20 +192,38 @@
                 ],
                 "fn": "playTrack",
                 "implHandler": [
+                    "var detailsPanel = this.getDetailsPanel(),",
+                    "    playOptions = {",
+                    "        auto_play: true,",
+                    "        buying: false,",
+                    "        liking: false,",
+                    "        sharing: false,",
+                    "        show_comments: false",
+                    "    },",
+                    "    grid = this.getPlaylistGrid();",
+                    "",
+                    "detailsPanel.update(record.data);",
+                    "",
                     "SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));",
                     "",
+                    "var me = this;",
+                    "",
                     "setTimeout(function(){",
+                    "",
                     "    var widgetIframe = document.getElementById('player').getElementsByTagName('iframe')[0];",
                     "    var widget  = SC.Widget(widgetIframe);",
                     "",
                     "    widget.bind(SC.Widget.Events.READY, function() {",
-                    "        console.log('entro ready');",
-                    "        widget.bind(SC.Widget.Events.PLAY, function() {",
-                    "            // get information about currently playing sound",
-                    "            console.log('track started');",
-                    "        });",
                     "        widget.bind(SC.Widget.Events.FINISH, function() {",
                     "            console.log('track finished');",
+                    "",
+                    "            var nextIndex = grid.store.data.indexOf(record) + 1;",
+                    "            if (nextIndex < grid.store.data.length) {",
+                    "                record = grid.store.data.items[nextIndex];",
+                    "                grid.getSelectionModel().select(record,true,false);",
+                    "                me.playTrack(record);",
+                    "            }",
+                    "",
                     "        });",
                     "    });",
                     "",
@@ -224,7 +231,213 @@
                 ]
             },
             "name": "playTrack",
-            "designerId": "54e858f0-6899-4219-9f21-920a91838422"
+            "designerId": "1b9a3689-10a0-4bdf-867c-38c0a7d4ed89"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#connectbtn",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onConnectbtnClick",
+                "implHandler": [
+                    "SC.connect(function() {",
+                    "  SC.get('/me', function(me) { ",
+                    "    console.log('Hello, ' + me.username); ",
+                    "  });",
+                    "});"
+                ],
+                "name": "click"
+            },
+            "name": "onConnectbtnClick",
+            "designerId": "b29ca610-2a7b-43e3-b1ee-72128f9c0d7d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "electronicGrid",
+                "selector": "#electronicGrid"
+            },
+            "name": "electronicGrid",
+            "designerId": "10e934bb-7e36-4537-bb48-f5895feb4527"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#electronicPanel",
+                "designer|params": [
+                    "p",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.panel.Panel",
+                "fn": "onElectronicPanelExpand",
+                "implHandler": [
+                    "var grid = this.getElectronicGrid();",
+                    "grid.store.load({",
+                    "    params: {",
+                    "        q: 'electronic',",
+                    "        page: 1,",
+                    "        start: 0,",
+                    "        limit: 25",
+                    "    }",
+                    "});"
+                ],
+                "name": "expand"
+            },
+            "name": "onElectronicPanelExpand",
+            "designerId": "cfd6717a-524d-4ed2-b813-917fe10c308d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "addToPlaylist",
+                "implHandler": [
+                    "var grid = this.getPlaylistGrid();",
+                    "grid.store.add(record);",
+                    "/*if (grid.store.data.length === 1) {",
+                    "            this.playTrack(record);",
+                    "            grid.getSelectionModel().select(record,true,false);",
+                    "        }*/"
+                ]
+            },
+            "name": "addToPlaylist",
+            "designerId": "b10a780f-483a-4e8a-b4da-ea316eba39a0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#electronicGrid",
+                "designer|params": [
+                    "rowmodel",
+                    "record",
+                    "index",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onElectronicGridSelect",
+                "implHandler": [
+                    "this.addToPlaylist(record);"
+                ],
+                "name": "select"
+            },
+            "name": "onElectronicGridSelect",
+            "designerId": "e4cf7cef-5f87-4da5-96ed-7977edfc6a23"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#rockGrid",
+                "designer|params": [
+                    "rowmodel",
+                    "record",
+                    "index",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onRockGridSelect",
+                "implHandler": [
+                    "this.addToPlaylist(record);"
+                ],
+                "name": "select"
+            },
+            "name": "onRockGridSelect",
+            "designerId": "4956a23f-f4f8-4ffa-8afb-5db270431e70"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "rockGrid",
+                "selector": "#rockGrid"
+            },
+            "name": "rockGrid",
+            "designerId": "d05c84fd-1d5e-43d9-abf9-c5e3ac46ab92"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "rockPanel",
+                "selector": "#rockPanel"
+            },
+            "name": "rockPanel",
+            "designerId": "bce65741-6966-44b8-a32c-3c0645967178"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#rockPanel",
+                "designer|params": [
+                    "p",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.panel.Panel",
+                "fn": "onRockPanelExpand",
+                "implHandler": [
+                    "var grid = this.getRockGrid();",
+                    "grid.store.load({",
+                    "    params: {",
+                    "        q: 'rock',",
+                    "        page: 1,",
+                    "        start: 0,",
+                    "        limit: 25",
+                    "    }",
+                    "});"
+                ],
+                "name": "expand"
+            },
+            "name": "onRockPanelExpand",
+            "designerId": "04acaf0d-6d01-4a76-a063-ef29e69c9b53"
         }
     ]
 }
