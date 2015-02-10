@@ -24,7 +24,8 @@ Ext.define('SoundCloud.view.MainView', {
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
         'Ext.toolbar.Paging',
-        'Ext.button.Button',
+        'Ext.tab.Panel',
+        'Ext.tab.Tab',
         'Ext.grid.View',
         'Ext.grid.plugin.DragDrop',
         'Ext.util.Point',
@@ -186,86 +187,65 @@ Ext.define('SoundCloud.view.MainView', {
                                     ]
                                 },
                                 {
-                                    xtype: 'panel',
+                                    xtype: 'tabpanel',
                                     itemId: 'genresPanel',
-                                    layout: 'accordion',
                                     title: 'Genres',
                                     items: [
                                         {
-                                            xtype: 'panel',
-                                            itemId: 'electronicPanel',
-                                            width: 100,
-                                            autoScroll: true,
-                                            collapsed: true,
+                                            xtype: 'gridpanel',
+                                            itemId: 'electronicGrid',
                                             title: 'Electronic',
-                                            items: [
+                                            forceFit: true,
+                                            store: 'GenreList',
+                                            columns: [
                                                 {
-                                                    xtype: 'gridpanel',
-                                                    itemId: 'electronicGrid',
-                                                    title: '',
-                                                    forceFit: true,
-                                                    store: 'GenreList',
-                                                    columns: [
-                                                        {
-                                                            xtype: 'gridcolumn',
-                                                            dataIndex: 'title',
-                                                            text: 'Title',
-                                                            flex: 2
-                                                        },
-                                                        {
-                                                            xtype: 'gridcolumn',
-                                                            dataIndex: 'user',
-                                                            text: 'Artist',
-                                                            flex: 1
-                                                        }
-                                                    ],
-                                                    dockedItems: [
-                                                        {
-                                                            xtype: 'pagingtoolbar',
-                                                            dock: 'bottom',
-                                                            width: 360,
-                                                            displayInfo: true,
-                                                            store: 'GenreList'
-                                                        }
-                                                    ]
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'title',
+                                                    text: 'Title',
+                                                    flex: 2
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'user',
+                                                    text: 'Artist',
+                                                    flex: 1
+                                                }
+                                            ],
+                                            dockedItems: [
+                                                {
+                                                    xtype: 'pagingtoolbar',
+                                                    dock: 'bottom',
+                                                    displayInfo: true,
+                                                    store: 'GenreList'
                                                 }
                                             ]
                                         },
                                         {
-                                            xtype: 'panel',
-                                            itemId: 'rockPanel',
-                                            width: 100,
-                                            autoScroll: true,
+                                            xtype: 'gridpanel',
+                                            itemId: 'rockGrid',
                                             title: 'Rock',
-                                            items: [
+                                            forceFit: true,
+                                            store: 'GenreList',
+                                            columns: [
                                                 {
-                                                    xtype: 'gridpanel',
-                                                    itemId: 'rockGrid',
-                                                    forceFit: true,
-                                                    store: 'GenreList',
-                                                    columns: [
-                                                        {
-                                                            xtype: 'gridcolumn',
-                                                            dataIndex: 'title',
-                                                            text: 'Title',
-                                                            flex: 2
-                                                        },
-                                                        {
-                                                            xtype: 'gridcolumn',
-                                                            dataIndex: 'user',
-                                                            text: 'Artist',
-                                                            flex: 1
-                                                        }
-                                                    ],
-                                                    dockedItems: [
-                                                        {
-                                                            xtype: 'pagingtoolbar',
-                                                            dock: 'bottom',
-                                                            width: 360,
-                                                            displayInfo: true,
-                                                            store: 'GenreList'
-                                                        }
-                                                    ]
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'title',
+                                                    text: 'Title',
+                                                    flex: 2
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'user',
+                                                    text: 'Artist',
+                                                    flex: 1
+                                                }
+                                            ],
+                                            dockedItems: [
+                                                {
+                                                    xtype: 'pagingtoolbar',
+                                                    dock: 'bottom',
+                                                    displayInfo: true,
+                                                    store: 'GenreList'
                                                 }
                                             ]
                                         }

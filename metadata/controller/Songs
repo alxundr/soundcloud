@@ -284,13 +284,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#electronicPanel",
-                "designer|params": [
-                    "p",
-                    "eOpts"
-                ],
+                "designer|controlQuery": "#electronicGrid",
                 "designer|targetType": "Ext.panel.Panel",
-                "fn": "onElectronicPanelExpand",
+                "fn": "onElectronicGridShow",
                 "implHandler": [
                     "var grid = this.getElectronicGrid();",
                     "grid.store.load({",
@@ -302,9 +298,9 @@
                     "    }",
                     "});"
                 ],
-                "name": "expand"
+                "name": "show"
             },
-            "name": "onElectronicPanelExpand",
+            "name": "onElectronicGridShow",
             "designerId": "cfd6717a-524d-4ed2-b813-917fe10c308d"
         },
         {
@@ -396,20 +392,6 @@
             "designerId": "d05c84fd-1d5e-43d9-abf9-c5e3ac46ab92"
         },
         {
-            "type": "controllerref",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "ref": "rockPanel",
-                "selector": "#rockPanel"
-            },
-            "name": "rockPanel",
-            "designerId": "bce65741-6966-44b8-a32c-3c0645967178"
-        },
-        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -417,13 +399,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#rockPanel",
+                "designer|controlQuery": "#rockGrid",
                 "designer|params": [
-                    "p",
+                    "component",
                     "eOpts"
                 ],
-                "designer|targetType": "Ext.panel.Panel",
-                "fn": "onRockPanelExpand",
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onRockGridShow",
                 "implHandler": [
                     "var grid = this.getRockGrid();",
                     "grid.store.load({",
@@ -435,10 +417,10 @@
                     "    }",
                     "});"
                 ],
-                "name": "expand"
+                "name": "show"
             },
-            "name": "onRockPanelExpand",
-            "designerId": "04acaf0d-6d01-4a76-a063-ef29e69c9b53"
+            "name": "onRockGridShow",
+            "designerId": "d45c63bd-76ab-46a7-b43e-203d00356a0e"
         }
     ]
 }

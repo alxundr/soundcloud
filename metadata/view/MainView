@@ -348,7 +348,7 @@
                             ]
                         },
                         {
-                            "type": "Ext.panel.Panel",
+                            "type": "Ext.tab.Panel",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
@@ -358,185 +358,163 @@
                                 "bodyPadding": null,
                                 "designer|displayName": "genresPanel",
                                 "itemId": "genresPanel",
-                                "layout": "accordion",
                                 "title": "Genres"
                             },
-                            "name": "MyPanel5",
+                            "name": "MyTabPanel",
                             "designerId": "bdce8a33-1e17-42fa-bdbd-f2e50d0d22da",
                             "cn": [
                                 {
-                                    "type": "Ext.panel.Panel",
+                                    "type": "Ext.grid.Panel",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "autoScroll": true,
-                                        "collapsed": true,
-                                        "designer|displayName": "electronicPanel",
-                                        "itemId": "electronicPanel",
+                                        "designer|displayName": "electronicGrid",
+                                        "forceFit": true,
+                                        "height": null,
+                                        "itemId": "electronicGrid",
                                         "maxHeight": null,
-                                        "title": "Electronic",
-                                        "width": 100
+                                        "store": "GenreList",
+                                        "title": "Electronic"
                                     },
-                                    "name": "MyPanel8",
-                                    "designerId": "71e48e64-8a33-4906-a8d5-24bf19c09a68",
+                                    "name": "MyGridPanel2",
+                                    "designerId": "836325a2-e8ce-42a2-8cd2-71a2b644f18f",
                                     "cn": [
                                         {
-                                            "type": "Ext.grid.Panel",
+                                            "type": "Ext.grid.column.Column",
                                             "reference": {
-                                                "name": "items",
+                                                "name": "columns",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "designer|displayName": "electronicGrid",
-                                                "forceFit": true,
-                                                "height": null,
-                                                "itemId": "electronicGrid",
-                                                "maxHeight": null,
-                                                "store": "GenreList",
-                                                "title": ""
+                                                "dataIndex": "title",
+                                                "flex": 2,
+                                                "text": "Title"
                                             },
-                                            "name": "MyGridPanel2",
-                                            "designerId": "836325a2-e8ce-42a2-8cd2-71a2b644f18f",
-                                            "cn": [
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "title",
-                                                        "flex": 2,
-                                                        "text": "Title"
-                                                    },
-                                                    "name": "MyColumn",
-                                                    "designerId": "1ba59cd5-12d5-4fba-b6fc-96e699f1e808"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "user",
-                                                        "flex": 1,
-                                                        "text": "Artist"
-                                                    },
-                                                    "name": "MyColumn7",
-                                                    "designerId": "4e4d5d4d-063f-4519-bfbf-387edc5a4ca0"
-                                                },
-                                                {
-                                                    "type": "Ext.toolbar.Paging",
-                                                    "reference": {
-                                                        "name": "dockedItems",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "designer|displayName": "electronicPaging",
-                                                        "displayInfo": true,
-                                                        "dock": "bottom",
-                                                        "store": "GenreList",
-                                                        "width": 360
-                                                    },
-                                                    "name": "MyPagingToolbar1",
-                                                    "designerId": "6b427bd5-6be8-4cae-93a4-add3321da024"
-                                                }
-                                            ]
+                                            "name": "MyColumn",
+                                            "designerId": "1ba59cd5-12d5-4fba-b6fc-96e699f1e808"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "user",
+                                                "flex": 1,
+                                                "text": "Artist"
+                                            },
+                                            "name": "MyColumn7",
+                                            "designerId": "4e4d5d4d-063f-4519-bfbf-387edc5a4ca0"
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Paging",
+                                            "reference": {
+                                                "name": "dockedItems",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "electronicPaging",
+                                                "displayInfo": true,
+                                                "dock": "bottom",
+                                                "store": "GenreList",
+                                                "width": null
+                                            },
+                                            "name": "MyPagingToolbar1",
+                                            "designerId": "6b427bd5-6be8-4cae-93a4-add3321da024"
+                                        },
+                                        {
+                                            "type": "Ext.tab.Tab",
+                                            "reference": {
+                                                "name": "tabConfig",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "name": "TabConfig2",
+                                            "designerId": "9c9d5f1f-16fe-42db-b536-cb5dc177d57f"
                                         }
                                     ]
                                 },
                                 {
-                                    "type": "Ext.panel.Panel",
+                                    "type": "Ext.grid.Panel",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "autoScroll": true,
-                                        "designer|displayName": "rockPanel",
-                                        "itemId": "rockPanel",
+                                        "designer|displayName": "rockGrid",
+                                        "forceFit": true,
+                                        "itemId": "rockGrid",
                                         "maxHeight": null,
-                                        "title": "Rock",
-                                        "width": 100
+                                        "store": "GenreList",
+                                        "title": "Rock"
                                     },
-                                    "name": "MyPanel9",
-                                    "designerId": "88148428-b12f-4856-9998-8c6bae032403",
+                                    "name": "MyGridPanel3",
+                                    "designerId": "6d9642d9-09f9-4c22-8916-bd9a6ad25325",
                                     "cn": [
                                         {
-                                            "type": "Ext.grid.Panel",
+                                            "type": "Ext.grid.column.Column",
                                             "reference": {
-                                                "name": "items",
+                                                "name": "columns",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "designer|displayName": "rockGrid",
-                                                "forceFit": true,
-                                                "itemId": "rockGrid",
-                                                "maxHeight": null,
-                                                "store": "GenreList",
-                                                "title": null
+                                                "dataIndex": "title",
+                                                "flex": 2,
+                                                "text": "Title"
                                             },
-                                            "name": "MyGridPanel3",
-                                            "designerId": "6d9642d9-09f9-4c22-8916-bd9a6ad25325",
-                                            "cn": [
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "title",
-                                                        "flex": 2,
-                                                        "text": "Title"
-                                                    },
-                                                    "name": "MyColumn2",
-                                                    "designerId": "d2028ae1-1a2e-481f-bae3-fb701303cc3d"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "user",
-                                                        "flex": 1,
-                                                        "text": "Artist"
-                                                    },
-                                                    "name": "MyColumn8",
-                                                    "designerId": "16bb61b4-2e98-4325-a289-7e3db9f5a50b"
-                                                },
-                                                {
-                                                    "type": "Ext.toolbar.Paging",
-                                                    "reference": {
-                                                        "name": "dockedItems",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "designer|displayName": "electronicPaging",
-                                                        "displayInfo": true,
-                                                        "dock": "bottom",
-                                                        "store": "GenreList",
-                                                        "width": 360
-                                                    },
-                                                    "name": "MyPagingToolbar2",
-                                                    "designerId": "5fb734bb-9d14-4e8b-8d3f-f68e94979689"
-                                                }
-                                            ]
+                                            "name": "MyColumn2",
+                                            "designerId": "d2028ae1-1a2e-481f-bae3-fb701303cc3d"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "user",
+                                                "flex": 1,
+                                                "text": "Artist"
+                                            },
+                                            "name": "MyColumn8",
+                                            "designerId": "16bb61b4-2e98-4325-a289-7e3db9f5a50b"
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Paging",
+                                            "reference": {
+                                                "name": "dockedItems",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "electronicPaging",
+                                                "displayInfo": true,
+                                                "dock": "bottom",
+                                                "store": "GenreList",
+                                                "width": null
+                                            },
+                                            "name": "MyPagingToolbar2",
+                                            "designerId": "5fb734bb-9d14-4e8b-8d3f-f68e94979689"
+                                        },
+                                        {
+                                            "type": "Ext.tab.Tab",
+                                            "reference": {
+                                                "name": "tabConfig",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "name": "TabConfig3",
+                                            "designerId": "1f55eade-3099-474a-9ecc-1c13714cda72"
                                         }
                                     ]
                                 }

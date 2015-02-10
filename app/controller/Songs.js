@@ -40,10 +40,6 @@ Ext.define('SoundCloud.controller.Songs', {
         {
             ref: 'rockGrid',
             selector: '#rockGrid'
-        },
-        {
-            ref: 'rockPanel',
-            selector: '#rockPanel'
         }
     ],
 
@@ -99,7 +95,7 @@ Ext.define('SoundCloud.controller.Songs', {
         });
     },
 
-    onElectronicPanelExpand: function(p, eOpts) {
+    onElectronicGridShow: function(component, eOpts) {
         var grid = this.getElectronicGrid();
         grid.store.load({
             params: {
@@ -119,7 +115,7 @@ Ext.define('SoundCloud.controller.Songs', {
         this.addToPlaylist(record);
     },
 
-    onRockPanelExpand: function(p, eOpts) {
+    onRockGridShow: function(component, eOpts) {
         var grid = this.getRockGrid();
         grid.store.load({
             params: {
@@ -195,17 +191,13 @@ Ext.define('SoundCloud.controller.Songs', {
             "#connectbtn": {
                 click: this.onConnectbtnClick
             },
-            "#electronicPanel": {
-                expand: this.onElectronicPanelExpand
-            },
             "#electronicGrid": {
+                show: this.onElectronicGridShow,
                 select: this.onElectronicGridSelect
             },
             "#rockGrid": {
-                select: this.onRockGridSelect
-            },
-            "#rockPanel": {
-                expand: this.onRockPanelExpand
+                select: this.onRockGridSelect,
+                show: this.onRockGridShow
             }
         });
     }
