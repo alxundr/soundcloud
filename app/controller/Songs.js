@@ -16,29 +16,6 @@
 Ext.define('SoundCloud.controller.Songs', {
     extend: 'Ext.app.Controller',
 
-    statics: {
-        playTrack: function(record) {
-            SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));
-
-            setTimeout(function(){
-                var widgetIframe = document.getElementById('player').getElementsByTagName('iframe')[0];
-                var widget  = SC.Widget(widgetIframe);
-
-                widget.bind(SC.Widget.Events.READY, function() {
-                    console.log('entro ready');
-                    widget.bind(SC.Widget.Events.PLAY, function() {
-                        // get information about currently playing sound
-                        console.log('track started');
-                    });
-                    widget.bind(SC.Widget.Events.FINISH, function() {
-                        console.log('track finished');
-                    });
-                });
-
-            },2000);
-        }
-    },
-
     stores: [
         'Songs'
     ],
@@ -76,21 +53,14 @@ Ext.define('SoundCloud.controller.Songs', {
     onSongsGridSelect: function(rowmodel, record, index, eOpts) {
         var grid = this.getPlaylistGrid();
         grid.store.add(record);
+        /*if (grid.store.data.length === 1) {
+            this.playTrack(record);
+            grid.getSelectionModel().select(record,true,false);
+        }*/
     },
 
     onPlaylistGridSelect: function(dataview, record, item, index, e, eOpts) {
-        var detailsPanel = this.getDetailsPanel(),
-            playOptions = {
-                auto_play: true,
-                buying: false,
-                liking: false,
-                sharing: false,
-                show_comments: false
-            };
-        var grid = this.getPlaylistGrid();
-        console.log('index of record: ' + grid.store.data.indexOf(record));
-        playTrack(record);
-
+        this.playTrack(record);
     },
 
     onPlaylistGridItemContextMenu: function(dataview, record, item, index, e, eOpts) {
@@ -111,6 +81,41 @@ Ext.define('SoundCloud.controller.Songs', {
         });
 
         this.ctxMenu.showAt(e.getXY());
+    },
+
+    playTrack: function(record) {
+        var detailsPanel = this.getDetailsPanel(),
+            playOptions = {
+                auto_play: true,
+                buying: false,
+                liking: false,
+                sharing: false,
+                show_comments: false
+            },
+            grid = this.getPlaylistGrid();
+
+        detailsPanel.update(record.data);
+
+        SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));
+
+        setTimeout(function(){
+
+            var widgetIframe = document.getElementById('player').getElementsByTagName('iframe')[0];
+            var widget  = SC.Widget(widgetIframe);
+
+            widget.bind(SC.Widget.Events.READY, function() {
+                widget.bind(SC.Widget.Events.FINISH, function() {
+                    console.log('track finished');
+
+                    var nextIndex = grid.store.data.indexOf(record) + 1;
+                    record = grid.store.data.items[nextIndex];
+                    detailsPanel.update(record.data);
+                    SC.oEmbed(record.data.permalink_url, playOptions, document.getElementById('player'));
+                    grid.getSelectionModel().select(record,true,false);
+                });
+            });
+
+        },2000);
     },
 
     init: function(application) {
