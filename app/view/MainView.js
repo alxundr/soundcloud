@@ -195,13 +195,13 @@ Ext.define('SoundCloud.view.MainView', {
                                             xtype: 'panel',
                                             itemId: 'electronicPanel',
                                             width: 100,
+                                            autoScroll: true,
                                             collapsed: true,
                                             title: 'Electronic',
                                             items: [
                                                 {
                                                     xtype: 'gridpanel',
                                                     itemId: 'electronicGrid',
-                                                    autoScroll: true,
                                                     title: '',
                                                     forceFit: true,
                                                     store: 'GenreList',
@@ -235,6 +235,7 @@ Ext.define('SoundCloud.view.MainView', {
                                             xtype: 'panel',
                                             itemId: 'rockPanel',
                                             width: 100,
+                                            autoScroll: true,
                                             title: 'Rock',
                                             items: [
                                                 {

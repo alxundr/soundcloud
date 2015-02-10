@@ -372,6 +372,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "autoScroll": true,
                                         "collapsed": true,
                                         "designer|displayName": "electronicPanel",
                                         "itemId": "electronicPanel",
@@ -390,7 +391,6 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "autoScroll": true,
                                                 "designer|displayName": "electronicGrid",
                                                 "forceFit": true,
                                                 "height": null,
@@ -461,6 +461,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "autoScroll": true,
                                         "designer|displayName": "rockPanel",
                                         "itemId": "rockPanel",
                                         "maxHeight": null,
