@@ -32,7 +32,11 @@ Ext.define('SoundCloud.view.MainView', {
     ],
 
     itemId: 'mainView',
-    layout: 'border',
+
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
 
     initComponent: function() {
         var me = this;
@@ -40,258 +44,288 @@ Ext.define('SoundCloud.view.MainView', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'panel',
-                    region: 'west',
-                    split: true,
-                    frame: true,
-                    itemId: 'menuPanel',
-                    width: 150,
-                    collapseDirection: 'left',
-                    collapsed: true,
-                    collapsible: true,
-                    title: 'Menu',
-                    items: [
-                        {
-                            xtype: 'menu',
-                            floating: false,
-                            itemId: 'menu',
-                            collapseFirst: false,
-                            collapsible: false,
-                            items: [
-                                {
-                                    xtype: 'menuitem',
-                                    itemId: 'home',
-                                    text: 'Home'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    itemId: 'upload',
-                                    text: 'Upload'
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    itemId: 'genres',
-                                    text: 'Genres'
-                                }
-                            ],
-                            listeners: {
-                                click: {
-                                    fn: me.onMenuClick,
-                                    scope: me
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
-                    xtype: 'panel',
-                    flex: 2,
-                    region: 'center',
-                    itemId: 'contentPanel',
-                    layout: 'card',
-                    bodyBorder: false,
-                    items: [
-                        {
-                            xtype: 'panel',
-                            itemId: 'homePanel',
-                            layout: 'border',
-                            title: 'Home',
-                            dockedItems: [
-                                {
-                                    xtype: 'toolbar',
-                                    dock: 'top',
-                                    itemId: 'homeToolbar',
-                                    items: [
-                                        {
-                                            xtype: 'textfield',
-                                            flex: 2,
-                                            itemId: 'searchfield',
-                                            fieldLabel: 'Search:'
-                                        }
-                                    ]
-                                }
-                            ],
-                            items: [
-                                {
-                                    xtype: 'panel',
-                                    region: 'center',
-                                    layout: {
-                                        type: 'vbox',
-                                        align: 'stretch'
-                                    },
-                                    items: [
-                                        {
-                                            xtype: 'gridpanel',
-                                            flex: 1,
-                                            itemId: 'songsGrid',
-                                            width: 904,
-                                            store: 'Songs',
-                                            columns: [
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    width: 242,
-                                                    dataIndex: 'title',
-                                                    text: 'Title',
-                                                    flex: 2
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'user',
-                                                    text: 'Artist',
-                                                    flex: 1
-                                                }
-                                            ]
-                                        }
-                                    ],
-                                    dockedItems: [
-                                        {
-                                            xtype: 'pagingtoolbar',
-                                            flex: 1,
-                                            dock: 'bottom',
-                                            itemId: 'pagingtoolbar',
-                                            displayInfo: true,
-                                            store: 'Songs'
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            xtype: 'panel',
-                            itemId: 'uploadPanel',
-                            layout: 'border',
-                            title: 'Upload',
-                            dockedItems: [
-                                {
-                                    xtype: 'toolbar',
-                                    dock: 'top',
-                                    items: [
-                                        {
-                                            xtype: 'button',
-                                            itemId: 'connectbtn',
-                                            text: 'connect'
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            xtype: 'panel',
-                            itemId: 'genresPanel',
-                            layout: 'accordion',
-                            title: 'Genres',
-                            items: [
-                                {
-                                    xtype: 'panel',
-                                    itemId: 'electronicPanel',
-                                    width: 100,
-                                    collapsed: true,
-                                    title: 'Electronic',
-                                    items: [
-                                        {
-                                            xtype: 'gridpanel',
-                                            itemId: 'electronicGrid',
-                                            title: '',
-                                            store: 'GenreList',
-                                            columns: [
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'title',
-                                                    text: 'Title',
-                                                    flex: 1
-                                                }
-                                            ]
-                                        }
-                                    ],
-                                    dockedItems: [
-                                        {
-                                            xtype: 'pagingtoolbar',
-                                            dock: 'bottom',
-                                            width: 360,
-                                            displayInfo: true,
-                                            store: 'GenreList'
-                                        }
-                                    ]
-                                },
-                                {
-                                    xtype: 'panel',
-                                    itemId: 'rockPanel',
-                                    width: 100,
-                                    title: 'Rock',
-                                    items: [
-                                        {
-                                            xtype: 'gridpanel',
-                                            itemId: 'rockGrid',
-                                            store: 'GenreList',
-                                            columns: [
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'title',
-                                                    text: 'Title',
-                                                    flex: 1
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    xtype: 'panel',
-                    flex: 2,
-                    region: 'east',
-                    itemId: 'playlistPanel',
-                    ui: 'grayuipanel',
-                    width: 150,
-                    bodyBorder: true,
-                    title: 'Playlist',
-                    items: [
-                        {
-                            xtype: 'gridpanel',
-                            itemId: 'playlistGrid',
-                            store: 'Playlist',
-                            columns: [
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'title',
-                                    text: 'Title',
-                                    flex: 4
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    dataIndex: 'user',
-                                    text: 'Artist',
-                                    flex: 1
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    align: 'right',
-                                    dataIndex: 'duration',
-                                    text: 'Duration',
-                                    flex: 1
-                                }
-                            ],
-                            viewConfig: {
-                                itemId: 'playlistview',
-                                plugins: [
-                                    Ext.create('Ext.grid.plugin.DragDrop', {
-                                        dragGroup: 'playlistGridDDGroup',
-                                        dragText: '{0} selected track{1}',
-                                        dropGroup: 'playlistGridDDGroup'
-                                    })
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    xtype: 'panel',
+                    xtype: 'container',
                     flex: 1,
-                    region: 'south',
-                    height: 100,
+                    height: 150,
+                    itemId: 'mainContainer',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'panel',
+                            frame: true,
+                            itemId: 'menuPanel',
+                            width: 150,
+                            collapseDirection: 'left',
+                            collapsed: true,
+                            collapsible: true,
+                            title: 'Menu',
+                            items: [
+                                {
+                                    xtype: 'menu',
+                                    floating: false,
+                                    itemId: 'menu',
+                                    collapseFirst: false,
+                                    collapsible: false,
+                                    items: [
+                                        {
+                                            xtype: 'menuitem',
+                                            itemId: 'home',
+                                            text: 'Home'
+                                        },
+                                        {
+                                            xtype: 'menuitem',
+                                            itemId: 'upload',
+                                            text: 'Upload'
+                                        },
+                                        {
+                                            xtype: 'menuitem',
+                                            itemId: 'genres',
+                                            text: 'Genres'
+                                        }
+                                    ],
+                                    listeners: {
+                                        click: {
+                                            fn: me.onMenuClick,
+                                            scope: me
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'panel',
+                            flex: 2,
+                            itemId: 'contentPanel',
+                            layout: 'card',
+                            bodyBorder: false,
+                            items: [
+                                {
+                                    xtype: 'panel',
+                                    itemId: 'homePanel',
+                                    layout: 'border',
+                                    title: 'Home',
+                                    dockedItems: [
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'top',
+                                            itemId: 'homeToolbar',
+                                            items: [
+                                                {
+                                                    xtype: 'textfield',
+                                                    flex: 2,
+                                                    itemId: 'searchfield',
+                                                    fieldLabel: 'Search:'
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    items: [
+                                        {
+                                            xtype: 'panel',
+                                            region: 'center',
+                                            layout: {
+                                                type: 'vbox',
+                                                align: 'stretch'
+                                            },
+                                            items: [
+                                                {
+                                                    xtype: 'gridpanel',
+                                                    flex: 1,
+                                                    itemId: 'songsGrid',
+                                                    width: 904,
+                                                    store: 'Songs',
+                                                    columns: [
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            width: 242,
+                                                            dataIndex: 'title',
+                                                            text: 'Title',
+                                                            flex: 2
+                                                        },
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            dataIndex: 'user',
+                                                            text: 'Artist',
+                                                            flex: 1
+                                                        }
+                                                    ],
+                                                    dockedItems: [
+                                                        {
+                                                            xtype: 'pagingtoolbar',
+                                                            dock: 'bottom',
+                                                            itemId: 'pagingtoolbar',
+                                                            displayInfo: true,
+                                                            store: 'Songs'
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'panel',
+                                    itemId: 'uploadPanel',
+                                    layout: 'border',
+                                    title: 'Upload',
+                                    dockedItems: [
+                                        {
+                                            xtype: 'toolbar',
+                                            dock: 'top',
+                                            items: [
+                                                {
+                                                    xtype: 'button',
+                                                    itemId: 'connectbtn',
+                                                    text: 'connect'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    xtype: 'panel',
+                                    itemId: 'genresPanel',
+                                    layout: 'accordion',
+                                    title: 'Genres',
+                                    items: [
+                                        {
+                                            xtype: 'panel',
+                                            itemId: 'electronicPanel',
+                                            width: 100,
+                                            collapsed: true,
+                                            title: 'Electronic',
+                                            items: [
+                                                {
+                                                    xtype: 'gridpanel',
+                                                    itemId: 'electronicGrid',
+                                                    autoScroll: true,
+                                                    title: '',
+                                                    forceFit: true,
+                                                    store: 'GenreList',
+                                                    columns: [
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            dataIndex: 'title',
+                                                            text: 'Title',
+                                                            flex: 2
+                                                        },
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            dataIndex: 'user',
+                                                            text: 'Artist',
+                                                            flex: 1
+                                                        }
+                                                    ],
+                                                    dockedItems: [
+                                                        {
+                                                            xtype: 'pagingtoolbar',
+                                                            dock: 'bottom',
+                                                            width: 360,
+                                                            displayInfo: true,
+                                                            store: 'GenreList'
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            xtype: 'panel',
+                                            itemId: 'rockPanel',
+                                            width: 100,
+                                            title: 'Rock',
+                                            items: [
+                                                {
+                                                    xtype: 'gridpanel',
+                                                    itemId: 'rockGrid',
+                                                    forceFit: true,
+                                                    store: 'GenreList',
+                                                    columns: [
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            dataIndex: 'title',
+                                                            text: 'Title',
+                                                            flex: 2
+                                                        },
+                                                        {
+                                                            xtype: 'gridcolumn',
+                                                            dataIndex: 'user',
+                                                            text: 'Artist',
+                                                            flex: 1
+                                                        }
+                                                    ],
+                                                    dockedItems: [
+                                                        {
+                                                            xtype: 'pagingtoolbar',
+                                                            dock: 'bottom',
+                                                            width: 360,
+                                                            displayInfo: true,
+                                                            store: 'GenreList'
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'panel',
+                            flex: 2,
+                            itemId: 'playlistPanel',
+                            ui: 'grayuipanel',
+                            width: 150,
+                            bodyBorder: true,
+                            title: 'Playlist',
+                            items: [
+                                {
+                                    xtype: 'gridpanel',
+                                    itemId: 'playlistGrid',
+                                    store: 'Playlist',
+                                    columns: [
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'title',
+                                            text: 'Title',
+                                            flex: 4
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            dataIndex: 'user',
+                                            text: 'Artist',
+                                            flex: 1
+                                        },
+                                        {
+                                            xtype: 'gridcolumn',
+                                            align: 'right',
+                                            dataIndex: 'duration',
+                                            text: 'Duration',
+                                            flex: 1
+                                        }
+                                    ],
+                                    viewConfig: {
+                                        itemId: 'playlistview',
+                                        plugins: [
+                                            Ext.create('Ext.grid.plugin.DragDrop', {
+                                                dragGroup: 'playlistGridDDGroup',
+                                                dragText: '{0} selected track{1}',
+                                                dropGroup: 'playlistGridDDGroup'
+                                            })
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    height: 166,
                     itemId: 'detailsPanel',
+                    maxHeight: 166,
                     tpl: [
                         '<div id=\'player\'>',
                         '</div>'

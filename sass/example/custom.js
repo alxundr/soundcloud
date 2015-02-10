@@ -3,5 +3,9 @@ Ext.theme.addManifest([
     {
         "ui": "grayuipanel",
         "xtype": "panel"
+    },
+    {
+        "ui": "menuuipanel",
+        "xtype": "panel"
     }
 ]);

@@ -17369,3 +17369,290 @@ body.x-nbr .x-panel-header-light-framed-collapsed-left-frameInfo {
   border-color: #44403c !important;
   border-width: 1px !important;
 }
+
+/* ui mixin: menuuipanel for of type: extjs-panel-ui */
+/* line 206, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-menuuipanel {
+  border-color: #ed6400;
+  padding: 0;
+}
+
+/* line 212, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel {
+  font-size: 13px;
+  border: 1px solid #ed6400;
+}
+/* line 219, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel .x-tool-img {
+  background-color: #ed6400;
+}
+
+/* line 232, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-horizontal {
+  padding: 9px 9px 10px 9px;
+}
+
+/* line 236, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-horizontal-noborder {
+  padding: 10px 10px 10px 10px;
+}
+
+/* line 240, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-vertical {
+  padding: 9px 9px 9px 10px;
+}
+
+/* line 244, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-vertical-noborder {
+  padding: 10px 10px 10px 10px;
+}
+
+/* line 260, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-text-container-menuuipanel {
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: arial, helvetica, verdana, sans-serif;
+  line-height: 15px;
+  padding: 1px 0 0;
+  text-transform: none;
+}
+
+/* line 272, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-body-menuuipanel {
+  background: white;
+  border-color: #ed6400;
+  color: black;
+  font-size: 13px;
+  font-size: normal;
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* line 432, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel {
+  background-image: none;
+  background-color: #ed6400;
+}
+
+/* line 436, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-vertical {
+  background-image: none;
+  background-color: #ed6400;
+}
+
+/* line 494, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel .x-panel-header-menuuipanel-collapsed-border-top {
+  border-bottom-width: 1px !important;
+}
+/* line 498, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel .x-panel-header-menuuipanel-collapsed-border-right {
+  border-left-width: 1px !important;
+}
+/* line 502, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel .x-panel-header-menuuipanel-collapsed-border-bottom {
+  border-top-width: 1px !important;
+}
+/* line 506, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel .x-panel-header-menuuipanel-collapsed-border-left {
+  border-right-width: 1px !important;
+}
+
+/* */
+/* */
+/* */
+/* */
+/* line 522, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-vertical .x-panel-header-text-container {
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin: 0 0;
+  -moz-transform: rotate(90deg);
+  -moz-transform-origin: 0 0;
+  -o-transform: rotate(90deg);
+  -o-transform-origin: 0 0;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+}
+/* line 36, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/rotate-element.scss */
+.x-ie9m .x-panel-header-menuuipanel-vertical .x-panel-header-text-container {
+  background-color: #ed6400;
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1), progid:DXImageTransform.Microsoft.Chroma(color=#ed6400);
+}
+
+/* line 551, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel .x-panel-header-icon {
+  width: 16px;
+  height: 16px;
+  background-position: center center;
+}
+/* line 556, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel .x-panel-header-glyph {
+  color: white;
+  font-size: 16px;
+  line-height: 16px;
+  opacity: 0.5;
+}
+/* line 572, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-ie8m .x-panel-header-menuuipanel .x-panel-header-glyph {
+  color: #f6b17f;
+}
+
+/* line 580, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-horizontal .x-panel-header-icon-before-title {
+  margin: 0 6px 0 0;
+}
+/* line 590, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-horizontal .x-panel-header-icon-after-title {
+  margin: 0 0 0 6px;
+}
+
+/* line 602, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-vertical .x-panel-header-icon-before-title {
+  margin: 0 0 6px 0;
+}
+/* line 612, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-vertical .x-panel-header-icon-after-title {
+  margin: 6px 0 0 0;
+}
+
+/* line 625, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-horizontal .x-tool-after-title {
+  margin: 0 0 0 6px;
+}
+/* line 635, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-horizontal .x-tool-before-title {
+  margin: 0 6px 0 0;
+}
+
+/* line 647, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-vertical .x-tool-after-title {
+  margin: 6px 0 0 0;
+}
+/* line 657, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-header-menuuipanel-vertical .x-tool-before-title {
+  margin: 0 0 6px 0;
+}
+
+/* line 687, ../../../../ext/packages/ext-theme-neutral/sass/src/panel/Panel.scss */
+.x-panel-menuuipanel-resizable .x-panel-handle {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+/* line 2, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-l {
+  border-left-color: #ed6400 !important;
+  border-left-width: 1px !important;
+}
+
+/* line 6, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-b {
+  border-bottom-color: #ed6400 !important;
+  border-bottom-width: 1px !important;
+}
+
+/* line 10, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-bl {
+  border-bottom-color: #ed6400 !important;
+  border-bottom-width: 1px !important;
+  border-left-color: #ed6400 !important;
+  border-left-width: 1px !important;
+}
+
+/* line 16, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-r {
+  border-right-color: #ed6400 !important;
+  border-right-width: 1px !important;
+}
+
+/* line 20, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-rl {
+  border-right-color: #ed6400 !important;
+  border-right-width: 1px !important;
+  border-left-color: #ed6400 !important;
+  border-left-width: 1px !important;
+}
+
+/* line 26, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-rb {
+  border-right-color: #ed6400 !important;
+  border-right-width: 1px !important;
+  border-bottom-color: #ed6400 !important;
+  border-bottom-width: 1px !important;
+}
+
+/* line 32, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-rbl {
+  border-right-color: #ed6400 !important;
+  border-right-width: 1px !important;
+  border-bottom-color: #ed6400 !important;
+  border-bottom-width: 1px !important;
+  border-left-color: #ed6400 !important;
+  border-left-width: 1px !important;
+}
+
+/* line 40, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-t {
+  border-top-color: #ed6400 !important;
+  border-top-width: 1px !important;
+}
+
+/* line 44, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-tl {
+  border-top-color: #ed6400 !important;
+  border-top-width: 1px !important;
+  border-left-color: #ed6400 !important;
+  border-left-width: 1px !important;
+}
+
+/* line 50, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-tb {
+  border-top-color: #ed6400 !important;
+  border-top-width: 1px !important;
+  border-bottom-color: #ed6400 !important;
+  border-bottom-width: 1px !important;
+}
+
+/* line 56, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-tbl {
+  border-top-color: #ed6400 !important;
+  border-top-width: 1px !important;
+  border-bottom-color: #ed6400 !important;
+  border-bottom-width: 1px !important;
+  border-left-color: #ed6400 !important;
+  border-left-width: 1px !important;
+}
+
+/* line 64, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-tr {
+  border-top-color: #ed6400 !important;
+  border-top-width: 1px !important;
+  border-right-color: #ed6400 !important;
+  border-right-width: 1px !important;
+}
+
+/* line 70, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-trl {
+  border-top-color: #ed6400 !important;
+  border-top-width: 1px !important;
+  border-right-color: #ed6400 !important;
+  border-right-width: 1px !important;
+  border-left-color: #ed6400 !important;
+  border-left-width: 1px !important;
+}
+
+/* line 78, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-trb {
+  border-top-color: #ed6400 !important;
+  border-top-width: 1px !important;
+  border-right-color: #ed6400 !important;
+  border-right-width: 1px !important;
+  border-bottom-color: #ed6400 !important;
+  border-bottom-width: 1px !important;
+}
+
+/* line 86, ../../../../ext/packages/ext-theme-base/sass/etc/mixins/border-management.scss */
+.x-panel-menuuipanel-outer-border-trbl {
+  border-color: #ed6400 !important;
+  border-width: 1px !important;
+}

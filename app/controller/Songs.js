@@ -138,7 +138,8 @@ Ext.define('SoundCloud.controller.Songs', {
                 buying: false,
                 liking: false,
                 sharing: false,
-                show_comments: false
+                show_comments: false,
+                maxheight: 166
             },
             grid = this.getPlaylistGrid();
 
