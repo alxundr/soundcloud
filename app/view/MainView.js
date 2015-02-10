@@ -132,6 +132,12 @@ Ext.define('SoundCloud.view.MainView', {
                                                     width: 242,
                                                     dataIndex: 'title',
                                                     text: 'Title',
+                                                    flex: 2
+                                                },
+                                                {
+                                                    xtype: 'gridcolumn',
+                                                    dataIndex: 'user',
+                                                    text: 'Artist',
                                                     flex: 1
                                                 }
                                             ]
@@ -255,6 +261,12 @@ Ext.define('SoundCloud.view.MainView', {
                                 },
                                 {
                                     xtype: 'gridcolumn',
+                                    dataIndex: 'user',
+                                    text: 'Artist',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
                                     align: 'right',
                                     dataIndex: 'duration',
                                     text: 'Duration',
@@ -266,7 +278,8 @@ Ext.define('SoundCloud.view.MainView', {
                                 plugins: [
                                     Ext.create('Ext.grid.plugin.DragDrop', {
                                         dragGroup: 'playlistGridDDGroup',
-                                        dragText: '{0} selected track{1}'
+                                        dragText: '{0} selected track{1}',
+                                        dropGroup: 'playlistGridDDGroup'
                                     })
                                 ]
                             }

@@ -45,10 +45,12 @@
                                     "cn": [
                                         {
                                             "id": "b4cb41cb-a58e-4ff3-9627-231137d48f4d",
-                                            "expanded": false,
                                             "cn": [
                                                 {
                                                     "id": "0b0184b9-2bbe-4e9e-830c-97d0f86643d5"
+                                                },
+                                                {
+                                                    "id": "d4182f0a-06c9-4696-b456-fa2811cb4775"
                                                 }
                                             ]
                                         },
@@ -74,6 +76,7 @@
                         },
                         {
                             "id": "bdce8a33-1e17-42fa-bdbd-f2e50d0d22da",
+                            "expanded": false,
                             "cn": [
                                 {
                                     "id": "71e48e64-8a33-4906-a8d5-24bf19c09a68",
@@ -124,11 +127,13 @@
                                     "id": "e4bb6cd8-91fc-420b-bc66-cef3ee9958f3"
                                 },
                                 {
+                                    "id": "fc95a9df-d4c4-4117-82d1-4facc01083fd"
+                                },
+                                {
                                     "id": "f4ef63e0-55d1-4e9c-b2e9-06fe315a72bc"
                                 },
                                 {
                                     "id": "9d626277-f426-4710-afec-9e0d4fa46f73",
-                                    "expanded": false,
                                     "cn": [
                                         {
                                             "id": "8f144107-314d-42f8-9ecf-1e74a33f145e"
@@ -194,6 +199,9 @@
                 },
                 {
                     "id": "fb166d7c-96ba-402a-b450-1369a696cddd"
+                },
+                {
+                    "id": "d7e92436-016e-4361-b2b4-d819f367925d"
                 }
             ]
         },
@@ -302,7 +310,7 @@
     },
     "inspectorState": {
         "topInstance": "353f0c49-9162-4dc5-8e2d-ffb09f0d3a62",
-        "selectedInstance": "bdce8a33-1e17-42fa-bdbd-f2e50d0d22da"
+        "selectedInstance": "8f144107-314d-42f8-9ecf-1e74a33f145e"
     },
     "editMode": "code",
     "userSettings": {

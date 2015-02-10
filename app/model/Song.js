@@ -32,6 +32,10 @@ Ext.define('SoundCloud.model.Song', {
         },
         {
             name: 'duration'
+        },
+        {
+            mapping: 'user.username',
+            name: 'user'
         }
     ]
 });

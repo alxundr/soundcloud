@@ -237,12 +237,27 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "dataIndex": "title",
-                                                "flex": 1,
+                                                "flex": 2,
                                                 "text": "Title",
                                                 "width": 242
                                             },
                                             "name": "MyColumn1",
                                             "designerId": "0b0184b9-2bbe-4e9e-830c-97d0f86643d5"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "dataIndex": "user",
+                                                "flex": 1,
+                                                "text": "Artist"
+                                            },
+                                            "name": "MyColumn5",
+                                            "designerId": "d4182f0a-06c9-4696-b456-fa2811cb4775"
                                         }
                                     ]
                                 },
@@ -547,6 +562,22 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "dataIndex": "user",
+                                "designer|displayName": "Artist",
+                                "flex": 1,
+                                "text": "Artist"
+                            },
+                            "name": "MyColumn6",
+                            "designerId": "fc95a9df-d4c4-4117-82d1-4facc01083fd"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
                                 "align": "right",
                                 "dataIndex": "duration",
                                 "flex": 1,
@@ -579,7 +610,8 @@
                                     "userConfig": {
                                         "designer|displayName": "playlistDragPlugin",
                                         "dragGroup": "playlistGridDDGroup",
-                                        "dragText": "{0} selected track{1}"
+                                        "dragText": "{0} selected track{1}",
+                                        "dropGroup": "playlistGridDDGroup"
                                     },
                                     "name": "MyGridDragDropPlugin",
                                     "designerId": "8f144107-314d-42f8-9ecf-1e74a33f145e"
