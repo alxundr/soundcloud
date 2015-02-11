@@ -47,6 +47,7 @@ Ext.define('SoundCloud.controller.Songs', {
         if (e.getKey() == e.ENTER) {
             console.log(field.getValue() + ' was entered');
             var grid = this.getSongsGrid();
+            grid.store.currentPage = 1;
             grid.store.load({
                 params: {
                     q: field.getValue(),
@@ -97,14 +98,7 @@ Ext.define('SoundCloud.controller.Songs', {
 
     onElectronicGridShow: function(component, eOpts) {
         var grid = this.getElectronicGrid();
-        grid.store.load({
-            params: {
-                q: 'electronic',
-                page: 1,
-                start: 0,
-                limit: 25
-            }
-        });
+        this.loadGenreList('electronic', grid);
     },
 
     onElectronicGridSelect: function(rowmodel, record, index, eOpts) {
@@ -117,14 +111,12 @@ Ext.define('SoundCloud.controller.Songs', {
 
     onRockGridShow: function(component, eOpts) {
         var grid = this.getRockGrid();
-        grid.store.load({
-            params: {
-                q: 'rock',
-                page: 1,
-                start: 0,
-                limit: 25
-            }
-        });
+        this.loadGenreList('rock', grid);
+    },
+
+    onElectronicGridAfterRender: function(component, eOpts) {
+        var grid = this.getElectronicGrid();
+        this.loadGenreList('electronic', grid);
     },
 
     playTrack: function(record) {
@@ -176,6 +168,18 @@ Ext.define('SoundCloud.controller.Songs', {
                 }*/
     },
 
+    loadGenreList: function(genre, grid) {
+        grid.store.currentPage = 1;
+        grid.store.load({
+            params: {
+                q: genre,
+                page: 1,
+                start: 0,
+                limit: 25
+            }
+        });
+    },
+
     init: function(application) {
         this.control({
             "#searchfield": {
@@ -193,7 +197,8 @@ Ext.define('SoundCloud.controller.Songs', {
             },
             "#electronicGrid": {
                 show: this.onElectronicGridShow,
-                select: this.onElectronicGridSelect
+                select: this.onElectronicGridSelect,
+                afterrender: this.onElectronicGridAfterRender
             },
             "#rockGrid": {
                 select: this.onRockGridSelect,

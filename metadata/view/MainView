@@ -355,6 +355,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "activeTab": 0,
                                 "bodyPadding": null,
                                 "designer|displayName": "genresPanel",
                                 "itemId": "genresPanel",

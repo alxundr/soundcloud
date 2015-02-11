@@ -190,6 +190,7 @@ Ext.define('SoundCloud.view.MainView', {
                                     xtype: 'tabpanel',
                                     itemId: 'genresPanel',
                                     title: 'Genres',
+                                    activeTab: 0,
                                     items: [
                                         {
                                             xtype: 'gridpanel',

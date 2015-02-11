@@ -7,6 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": false,
+        "data": null,
         "designer|userClassName": "GenreList",
         "model": "Song",
         "storeId": "GenreList"

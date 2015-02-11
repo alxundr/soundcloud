@@ -34,6 +34,7 @@
                     "if (e.getKey() == e.ENTER) {",
                     "    console.log(field.getValue() + ' was entered');",
                     "    var grid = this.getSongsGrid();",
+                    "    grid.store.currentPage = 1;",
                     "    grid.store.load({",
                     "        params: {",
                     "            q: field.getValue(),",
@@ -289,14 +290,7 @@
                 "fn": "onElectronicGridShow",
                 "implHandler": [
                     "var grid = this.getElectronicGrid();",
-                    "grid.store.load({",
-                    "    params: {",
-                    "        q: 'electronic',",
-                    "        page: 1,",
-                    "        start: 0,",
-                    "        limit: 25",
-                    "    }",
-                    "});"
+                    "this.loadGenreList('electronic', grid);"
                 ],
                 "name": "show"
             },
@@ -408,19 +402,64 @@
                 "fn": "onRockGridShow",
                 "implHandler": [
                     "var grid = this.getRockGrid();",
-                    "grid.store.load({",
-                    "    params: {",
-                    "        q: 'rock',",
-                    "        page: 1,",
-                    "        start: 0,",
-                    "        limit: 25",
-                    "    }",
-                    "});"
+                    "this.loadGenreList('rock', grid);"
                 ],
                 "name": "show"
             },
             "name": "onRockGridShow",
             "designerId": "d45c63bd-76ab-46a7-b43e-203d00356a0e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#electronicGrid",
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onElectronicGridAfterRender",
+                "implHandler": [
+                    "var grid = this.getElectronicGrid();",
+                    "this.loadGenreList('electronic', grid);"
+                ],
+                "name": "afterrender"
+            },
+            "name": "onElectronicGridAfterRender",
+            "designerId": "e14d0bd5-4479-4405-b9a1-65a9f323a337"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "genre",
+                    "grid"
+                ],
+                "fn": "loadGenreList",
+                "implHandler": [
+                    "grid.store.currentPage = 1;",
+                    "grid.store.load({",
+                    "    params: {",
+                    "        q: genre,",
+                    "        page: 1,",
+                    "        start: 0,",
+                    "        limit: 25",
+                    "    }",
+                    "});"
+                ]
+            },
+            "name": "loadGenreList",
+            "designerId": "76337711-debe-4eea-97f4-d09689b888e0"
         }
     ]
 }
