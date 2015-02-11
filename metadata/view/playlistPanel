@@ -1,0 +1,120 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyBorder": true,
+        "designer|uiInterfaceName": "grayuipanel",
+        "designer|userAlias": "playlistpanel",
+        "designer|userClassName": "playlistPanel",
+        "itemId": "playlistPanel",
+        "title": "Playlist",
+        "ui": "grayuipanel",
+        "width": 150
+    },
+    "name": "MyPanel7",
+    "designerId": "2279083a-649f-4b56-a11c-9e4275fff8fc",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "playlistGrid",
+                "itemId": "playlistGrid",
+                "normalViewConfig": null,
+                "store": "Playlist",
+                "title": null
+            },
+            "name": "MyGridPanel1",
+            "designerId": "e7c3420c-6e60-4718-88a4-a6f57e2904c8",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "title",
+                        "flex": 4,
+                        "text": "Title"
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "e4bb6cd8-91fc-420b-bc66-cef3ee9958f3"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "user",
+                        "designer|displayName": "Artist",
+                        "flex": 1,
+                        "text": "Artist"
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "fc95a9df-d4c4-4117-82d1-4facc01083fd"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "duration",
+                        "flex": 1,
+                        "text": "Duration"
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "f4ef63e0-55d1-4e9c-b2e9-06fe315a72bc"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "playlistGridView",
+                        "itemId": "playlistview"
+                    },
+                    "name": "MyGridView",
+                    "designerId": "9d626277-f426-4710-afec-9e0d4fa46f73",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.plugin.DragDrop",
+                            "reference": {
+                                "name": "plugins",
+                                "type": "array"
+                            },
+                            "codeClass": "Ext.grid.plugin.DragDrop",
+                            "userConfig": {
+                                "designer|displayName": "playlistDragPlugin",
+                                "dragGroup": "playlistGridDDGroup",
+                                "dragText": "{0} selected track{1}",
+                                "dropGroup": "playlistGridDDGroup"
+                            },
+                            "name": "MyGridDragDropPlugin",
+                            "designerId": "8f144107-314d-42f8-9ecf-1e74a33f145e"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

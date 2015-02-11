@@ -28,7 +28,12 @@ Ext.application({
         'GenreList'
     ],
     views: [
-        'MainView'
+        'MainView',
+        'homePanel',
+        'genresPanel',
+        'uploadPanel',
+        'detailsPanel',
+        'playlistPanel'
     ],
     controllers: [
         'Navigation',

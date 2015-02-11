@@ -36,7 +36,12 @@
     "framework": "ext42",
     "viewOrderMap": {
         "view": [
-            "353f0c49-9162-4dc5-8e2d-ffb09f0d3a62"
+            "353f0c49-9162-4dc5-8e2d-ffb09f0d3a62",
+            "e6dd4023-b19c-41ba-a58e-3d56d0a0597a",
+            "e725535c-69df-4b15-b868-72fbe069e706",
+            "8cf3fb95-aacf-4947-ba36-ab63ceadc79c",
+            "7f41b923-5158-400d-9106-d830b9486b5d",
+            "2279083a-649f-4b56-a11c-9e4275fff8fc"
         ],
         "store": [
             "66fc24a6-ee87-4400-a65e-3df99f9e6c55",

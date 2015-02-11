@@ -1,0 +1,51 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "uploadpanel",
+        "designer|userClassName": "uploadPanel",
+        "itemId": "uploadPanel",
+        "layout": "border",
+        "title": "Upload"
+    },
+    "name": "MyPanel4",
+    "designerId": "8cf3fb95-aacf-4947-ba36-ab63ceadc79c",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "connectToolbar",
+                "dock": "top"
+            },
+            "name": "MyToolbar1",
+            "designerId": "565bd2f6-f43e-4894-9a55-23e260af423d",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "connectBtn",
+                        "itemId": "connectbtn",
+                        "layout|flex": null,
+                        "text": "connect"
+                    },
+                    "name": "MyButton",
+                    "designerId": "ef2ba948-6ea7-468f-92d0-33b227aa649e"
+                }
+            ]
+        }
+    ]
+}

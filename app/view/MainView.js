@@ -18,18 +18,14 @@ Ext.define('SoundCloud.view.MainView', {
     alias: 'widget.mainview',
 
     requires: [
+        'SoundCloud.view.homePanel',
+        'SoundCloud.view.genresPanel',
+        'SoundCloud.view.uploadPanel',
+        'SoundCloud.view.playlistPanel',
+        'SoundCloud.view.detailsPanel',
         'Ext.menu.Menu',
         'Ext.menu.Item',
-        'Ext.form.field.Text',
-        'Ext.grid.Panel',
-        'Ext.grid.column.Column',
-        'Ext.toolbar.Paging',
-        'Ext.tab.Panel',
-        'Ext.tab.Tab',
-        'Ext.grid.View',
-        'Ext.grid.plugin.DragDrop',
-        'Ext.util.Point',
-        'Ext.XTemplate'
+        'Ext.tab.Panel'
     ],
 
     itemId: 'mainView',
@@ -104,218 +100,25 @@ Ext.define('SoundCloud.view.MainView', {
                             bodyBorder: false,
                             items: [
                                 {
-                                    xtype: 'panel',
-                                    itemId: 'homePanel',
-                                    layout: 'border',
-                                    title: 'Home',
-                                    dockedItems: [
-                                        {
-                                            xtype: 'toolbar',
-                                            dock: 'top',
-                                            itemId: 'homeToolbar',
-                                            items: [
-                                                {
-                                                    xtype: 'textfield',
-                                                    flex: 2,
-                                                    itemId: 'searchfield',
-                                                    fieldLabel: 'Search:'
-                                                }
-                                            ]
-                                        }
-                                    ],
-                                    items: [
-                                        {
-                                            xtype: 'panel',
-                                            region: 'center',
-                                            layout: {
-                                                type: 'vbox',
-                                                align: 'stretch'
-                                            },
-                                            items: [
-                                                {
-                                                    xtype: 'gridpanel',
-                                                    flex: 1,
-                                                    itemId: 'songsGrid',
-                                                    width: 904,
-                                                    store: 'Songs',
-                                                    columns: [
-                                                        {
-                                                            xtype: 'gridcolumn',
-                                                            width: 242,
-                                                            dataIndex: 'title',
-                                                            text: 'Title',
-                                                            flex: 2
-                                                        },
-                                                        {
-                                                            xtype: 'gridcolumn',
-                                                            dataIndex: 'user',
-                                                            text: 'Artist',
-                                                            flex: 1
-                                                        }
-                                                    ],
-                                                    dockedItems: [
-                                                        {
-                                                            xtype: 'pagingtoolbar',
-                                                            dock: 'bottom',
-                                                            itemId: 'pagingtoolbar',
-                                                            displayInfo: true,
-                                                            store: 'Songs'
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
+                                    xtype: 'homepanel'
                                 },
                                 {
-                                    xtype: 'panel',
-                                    itemId: 'uploadPanel',
-                                    layout: 'border',
-                                    title: 'Upload',
-                                    dockedItems: [
-                                        {
-                                            xtype: 'toolbar',
-                                            dock: 'top',
-                                            items: [
-                                                {
-                                                    xtype: 'button',
-                                                    itemId: 'connectbtn',
-                                                    text: 'connect'
-                                                }
-                                            ]
-                                        }
-                                    ]
+                                    xtype: 'genrespanel'
                                 },
                                 {
-                                    xtype: 'tabpanel',
-                                    itemId: 'genresPanel',
-                                    title: 'Genres',
-                                    activeTab: 0,
-                                    items: [
-                                        {
-                                            xtype: 'gridpanel',
-                                            itemId: 'electronicGrid',
-                                            title: 'Electronic',
-                                            forceFit: true,
-                                            store: 'GenreList',
-                                            columns: [
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'title',
-                                                    text: 'Title',
-                                                    flex: 2
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'user',
-                                                    text: 'Artist',
-                                                    flex: 1
-                                                }
-                                            ],
-                                            dockedItems: [
-                                                {
-                                                    xtype: 'pagingtoolbar',
-                                                    dock: 'bottom',
-                                                    displayInfo: true,
-                                                    store: 'GenreList'
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            xtype: 'gridpanel',
-                                            itemId: 'rockGrid',
-                                            title: 'Rock',
-                                            forceFit: true,
-                                            store: 'GenreList',
-                                            columns: [
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'title',
-                                                    text: 'Title',
-                                                    flex: 2
-                                                },
-                                                {
-                                                    xtype: 'gridcolumn',
-                                                    dataIndex: 'user',
-                                                    text: 'Artist',
-                                                    flex: 1
-                                                }
-                                            ],
-                                            dockedItems: [
-                                                {
-                                                    xtype: 'pagingtoolbar',
-                                                    dock: 'bottom',
-                                                    displayInfo: true,
-                                                    store: 'GenreList'
-                                                }
-                                            ]
-                                        }
-                                    ]
+                                    xtype: 'uploadpanel'
                                 }
                             ]
                         },
                         {
-                            xtype: 'panel',
-                            flex: 2,
-                            itemId: 'playlistPanel',
-                            ui: 'grayuipanel',
-                            width: 150,
-                            bodyBorder: true,
-                            title: 'Playlist',
-                            items: [
-                                {
-                                    xtype: 'gridpanel',
-                                    itemId: 'playlistGrid',
-                                    store: 'Playlist',
-                                    columns: [
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'title',
-                                            text: 'Title',
-                                            flex: 4
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            dataIndex: 'user',
-                                            text: 'Artist',
-                                            flex: 1
-                                        },
-                                        {
-                                            xtype: 'gridcolumn',
-                                            align: 'right',
-                                            dataIndex: 'duration',
-                                            text: 'Duration',
-                                            flex: 1
-                                        }
-                                    ],
-                                    viewConfig: {
-                                        itemId: 'playlistview',
-                                        plugins: [
-                                            Ext.create('Ext.grid.plugin.DragDrop', {
-                                                dragGroup: 'playlistGridDDGroup',
-                                                dragText: '{0} selected track{1}',
-                                                dropGroup: 'playlistGridDDGroup'
-                                            })
-                                        ]
-                                    }
-                                }
-                            ]
+                            xtype: 'playlistpanel',
+                            flex: 2
                         }
                     ]
                 },
                 {
-                    xtype: 'panel',
-                    height: 166,
-                    itemId: 'detailsPanel',
-                    maxHeight: 166,
-                    tpl: [
-                        '<div id=\'player\'>',
-                        '</div>'
-                    ],
-                    layout: {
-                        type: 'vbox',
-                        align: 'stretch'
-                    }
+                    xtype: 'detailspanel',
+                    flex: 1
                 }
             ]
         });

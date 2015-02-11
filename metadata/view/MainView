@@ -159,532 +159,69 @@
                     "designerId": "c98c4f91-6f66-4054-8e31-2ccc2ab4f975",
                     "cn": [
                         {
-                            "type": "Ext.panel.Panel",
+                            "type": "linkedinstance",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "userConfig": {
-                                "itemId": "homePanel",
-                                "layout": "border",
-                                "title": "Home",
-                                "width": null
-                            },
-                            "name": "MyPanel3",
-                            "designerId": "6e0310e2-3829-40e2-acea-c3d80afea341",
-                            "cn": [
-                                {
-                                    "type": "Ext.toolbar.Toolbar",
-                                    "reference": {
-                                        "name": "dockedItems",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|displayName": "homeToolbar",
-                                        "dock": "top",
-                                        "itemId": "homeToolbar"
-                                    },
-                                    "name": "MyToolbar",
-                                    "designerId": "ff567bd4-e8c0-4177-a916-3185fcc1d042",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.Text",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|createAlias": "",
-                                                "designer|displayName": "searchField",
-                                                "fieldLabel": "Search:",
-                                                "itemId": "searchfield",
-                                                "layout|flex": 2
-                                            },
-                                            "name": "MyTextField",
-                                            "designerId": "4c0e843d-9024-4b1b-b2e2-da2932a9e77d"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.panel.Panel",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "container|align": "stretch",
-                                        "designer|displayName": "centerPanel",
-                                        "layout": "vbox",
-                                        "layout|region": "center",
-                                        "title": null
-                                    },
-                                    "name": "MyPanel6",
-                                    "designerId": "b155a29d-6ac6-4c5a-b371-738677428c83",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.grid.Panel",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|displayName": "songsGrid",
-                                                "itemId": "songsGrid",
-                                                "layout|flex": 1,
-                                                "store": "Songs",
-                                                "title": null,
-                                                "width": 904
-                                            },
-                                            "name": "MyGridPanel",
-                                            "designerId": "b4cb41cb-a58e-4ff3-9627-231137d48f4d",
-                                            "cn": [
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "title",
-                                                        "flex": 2,
-                                                        "text": "Title",
-                                                        "width": 242
-                                                    },
-                                                    "name": "MyColumn1",
-                                                    "designerId": "0b0184b9-2bbe-4e9e-830c-97d0f86643d5"
-                                                },
-                                                {
-                                                    "type": "Ext.grid.column.Column",
-                                                    "reference": {
-                                                        "name": "columns",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "dataIndex": "user",
-                                                        "flex": 1,
-                                                        "text": "Artist"
-                                                    },
-                                                    "name": "MyColumn5",
-                                                    "designerId": "d4182f0a-06c9-4696-b456-fa2811cb4775"
-                                                },
-                                                {
-                                                    "type": "Ext.toolbar.Paging",
-                                                    "reference": {
-                                                        "name": "dockedItems",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "designer|displayName": "songsPaging",
-                                                        "displayInfo": true,
-                                                        "dock": "bottom",
-                                                        "itemId": "pagingtoolbar",
-                                                        "store": "Songs"
-                                                    },
-                                                    "name": "MyPagingToolbar",
-                                                    "designerId": "1f262036-bba9-4230-8d04-2bd440948c3a"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
+                            "name": "homepanel",
+                            "designerId": "7b3b93f5-5917-4dfd-8153-8eb0f96503ef",
+                            "masterInstanceId": "e6dd4023-b19c-41ba-a58e-3d56d0a0597a"
                         },
                         {
-                            "type": "Ext.panel.Panel",
+                            "type": "linkedinstance",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "userConfig": {
-                                "designer|displayName": "uploadPanel",
-                                "itemId": "uploadPanel",
-                                "layout": "border",
-                                "title": "Upload"
-                            },
-                            "name": "MyPanel4",
-                            "designerId": "daf95a82-9e4f-4afd-b806-c2cc1b902fad",
-                            "cn": [
-                                {
-                                    "type": "Ext.toolbar.Toolbar",
-                                    "reference": {
-                                        "name": "dockedItems",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|displayName": "connectToolbar",
-                                        "dock": "top"
-                                    },
-                                    "name": "MyToolbar1",
-                                    "designerId": "565bd2f6-f43e-4894-9a55-23e260af423d",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.button.Button",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|displayName": "connectBtn",
-                                                "itemId": "connectbtn",
-                                                "layout|flex": null,
-                                                "text": "connect"
-                                            },
-                                            "name": "MyButton",
-                                            "designerId": "ef2ba948-6ea7-468f-92d0-33b227aa649e"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "name": "genrespanel1",
+                            "designerId": "3cbeaaf9-65cd-440a-9ada-6cd381cbb471",
+                            "masterInstanceId": "e725535c-69df-4b15-b868-72fbe069e706"
                         },
                         {
-                            "type": "Ext.tab.Panel",
+                            "type": "linkedinstance",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "userConfig": {
-                                "activeTab": 0,
-                                "bodyPadding": null,
-                                "designer|displayName": "genresPanel",
-                                "itemId": "genresPanel",
-                                "title": "Genres"
-                            },
-                            "name": "MyTabPanel",
-                            "designerId": "bdce8a33-1e17-42fa-bdbd-f2e50d0d22da",
-                            "cn": [
-                                {
-                                    "type": "Ext.grid.Panel",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|displayName": "electronicGrid",
-                                        "forceFit": true,
-                                        "height": null,
-                                        "itemId": "electronicGrid",
-                                        "maxHeight": null,
-                                        "store": "GenreList",
-                                        "title": "Electronic"
-                                    },
-                                    "name": "MyGridPanel2",
-                                    "designerId": "836325a2-e8ce-42a2-8cd2-71a2b644f18f",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "title",
-                                                "flex": 2,
-                                                "text": "Title"
-                                            },
-                                            "name": "MyColumn",
-                                            "designerId": "1ba59cd5-12d5-4fba-b6fc-96e699f1e808"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "user",
-                                                "flex": 1,
-                                                "text": "Artist"
-                                            },
-                                            "name": "MyColumn7",
-                                            "designerId": "4e4d5d4d-063f-4519-bfbf-387edc5a4ca0"
-                                        },
-                                        {
-                                            "type": "Ext.toolbar.Paging",
-                                            "reference": {
-                                                "name": "dockedItems",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|displayName": "electronicPaging",
-                                                "displayInfo": true,
-                                                "dock": "bottom",
-                                                "store": "GenreList",
-                                                "width": null
-                                            },
-                                            "name": "MyPagingToolbar1",
-                                            "designerId": "6b427bd5-6be8-4cae-93a4-add3321da024"
-                                        },
-                                        {
-                                            "type": "Ext.tab.Tab",
-                                            "reference": {
-                                                "name": "tabConfig",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "name": "TabConfig2",
-                                            "designerId": "9c9d5f1f-16fe-42db-b536-cb5dc177d57f"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.grid.Panel",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|displayName": "rockGrid",
-                                        "forceFit": true,
-                                        "itemId": "rockGrid",
-                                        "maxHeight": null,
-                                        "store": "GenreList",
-                                        "title": "Rock"
-                                    },
-                                    "name": "MyGridPanel3",
-                                    "designerId": "6d9642d9-09f9-4c22-8916-bd9a6ad25325",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "title",
-                                                "flex": 2,
-                                                "text": "Title"
-                                            },
-                                            "name": "MyColumn2",
-                                            "designerId": "d2028ae1-1a2e-481f-bae3-fb701303cc3d"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "user",
-                                                "flex": 1,
-                                                "text": "Artist"
-                                            },
-                                            "name": "MyColumn8",
-                                            "designerId": "16bb61b4-2e98-4325-a289-7e3db9f5a50b"
-                                        },
-                                        {
-                                            "type": "Ext.toolbar.Paging",
-                                            "reference": {
-                                                "name": "dockedItems",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|displayName": "electronicPaging",
-                                                "displayInfo": true,
-                                                "dock": "bottom",
-                                                "store": "GenreList",
-                                                "width": null
-                                            },
-                                            "name": "MyPagingToolbar2",
-                                            "designerId": "5fb734bb-9d14-4e8b-8d3f-f68e94979689"
-                                        },
-                                        {
-                                            "type": "Ext.tab.Tab",
-                                            "reference": {
-                                                "name": "tabConfig",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "name": "TabConfig3",
-                                            "designerId": "1f55eade-3099-474a-9ecc-1c13714cda72"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "name": "uploadpanel1",
+                            "designerId": "8692509a-95ae-4793-bd00-627e2dd042e0",
+                            "masterInstanceId": "8cf3fb95-aacf-4947-ba36-ab63ceadc79c"
                         }
                     ]
                 },
                 {
-                    "type": "Ext.panel.Panel",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "bodyBorder": true,
-                        "designer|createAlias": null,
-                        "designer|displayName": "playlistPanel",
-                        "designer|uiInterfaceName": "grayuipanel",
-                        "itemId": "playlistPanel",
-                        "layout|flex": 2,
-                        "title": "Playlist",
-                        "ui": "grayuipanel",
-                        "width": 150
+                        "layout|flex": 2
                     },
-                    "name": "MyPanel7",
-                    "designerId": "a52185f8-714d-4f1c-bf44-782563268032",
-                    "cn": [
-                        {
-                            "type": "Ext.grid.Panel",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|displayName": "playlistGrid",
-                                "itemId": "playlistGrid",
-                                "normalViewConfig": null,
-                                "store": "Playlist",
-                                "title": null
-                            },
-                            "name": "MyGridPanel1",
-                            "designerId": "e7c3420c-6e60-4718-88a4-a6f57e2904c8",
-                            "cn": [
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "title",
-                                        "flex": 4,
-                                        "text": "Title"
-                                    },
-                                    "name": "MyColumn3",
-                                    "designerId": "e4bb6cd8-91fc-420b-bc66-cef3ee9958f3"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "user",
-                                        "designer|displayName": "Artist",
-                                        "flex": 1,
-                                        "text": "Artist"
-                                    },
-                                    "name": "MyColumn6",
-                                    "designerId": "fc95a9df-d4c4-4117-82d1-4facc01083fd"
-                                },
-                                {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "align": "right",
-                                        "dataIndex": "duration",
-                                        "flex": 1,
-                                        "text": "Duration"
-                                    },
-                                    "name": "MyColumn4",
-                                    "designerId": "f4ef63e0-55d1-4e9c-b2e9-06fe315a72bc"
-                                },
-                                {
-                                    "type": "Ext.grid.View",
-                                    "reference": {
-                                        "name": "viewConfig",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|displayName": "playlistGridView",
-                                        "itemId": "playlistview"
-                                    },
-                                    "name": "MyGridView",
-                                    "designerId": "9d626277-f426-4710-afec-9e0d4fa46f73",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.grid.plugin.DragDrop",
-                                            "reference": {
-                                                "name": "plugins",
-                                                "type": "array"
-                                            },
-                                            "codeClass": "Ext.grid.plugin.DragDrop",
-                                            "userConfig": {
-                                                "designer|displayName": "playlistDragPlugin",
-                                                "dragGroup": "playlistGridDDGroup",
-                                                "dragText": "{0} selected track{1}",
-                                                "dropGroup": "playlistGridDDGroup"
-                                            },
-                                            "name": "MyGridDragDropPlugin",
-                                            "designerId": "8f144107-314d-42f8-9ecf-1e74a33f145e"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
+                    "name": "playlistpanel1",
+                    "designerId": "81b15531-24c9-43c0-97f0-0f10bee6781c",
+                    "masterInstanceId": "2279083a-649f-4b56-a11c-9e4275fff8fc"
                 }
             ]
         },
         {
-            "type": "Ext.panel.Panel",
+            "type": "linkedinstance",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "container|align": "stretch",
-                "designer|displayName": "detailsPanel",
-                "designer|uiInterfaceName": "default",
-                "height": 166,
-                "itemId": "detailsPanel",
-                "layout": "vbox",
-                "layout|flex": null,
-                "maxHeight": 166,
-                "title": null
+                "layout|flex": 1
             },
-            "name": "MyPanel",
-            "designerId": "d3a68240-bc90-4df2-b736-b8938e21b8f9",
-            "cn": [
-                {
-                    "type": "Ext.XTemplate",
-                    "reference": {
-                        "name": "tpl",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|displayName": "tpl",
-                        "implHandler": [
-                            "<div id='player'>",
-                            "</div>"
-                        ]
-                    },
-                    "name": "tpl",
-                    "designerId": "124f3013-9e3d-4849-8a15-26468711a78b"
-                }
-            ]
+            "name": "detailspanel1",
+            "designerId": "313cfcdd-ada3-462b-a5c6-d169dee4c052",
+            "masterInstanceId": "7f41b923-5158-400d-9106-d830b9486b5d"
         }
     ]
 }

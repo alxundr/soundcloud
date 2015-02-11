@@ -1,0 +1,40 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|uiInterfaceName": "default",
+        "designer|userAlias": "detailspanel",
+        "designer|userClassName": "detailsPanel",
+        "height": 166,
+        "itemId": "detailsPanel",
+        "layout": "vbox",
+        "maxHeight": 166,
+        "title": null
+    },
+    "name": "MyPanel",
+    "designerId": "7f41b923-5158-400d-9106-d830b9486b5d",
+    "cn": [
+        {
+            "type": "Ext.XTemplate",
+            "reference": {
+                "name": "tpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "tpl",
+                "implHandler": [
+                    "<div id='player'>",
+                    "</div>"
+                ]
+            },
+            "name": "tpl",
+            "designerId": "124f3013-9e3d-4849-8a15-26468711a78b"
+        }
+    ]
+}

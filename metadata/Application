@@ -19,7 +19,12 @@
             "GenreList"
         ],
         "views": [
-            "MainView"
+            "MainView",
+            "homePanel",
+            "genresPanel",
+            "uploadPanel",
+            "detailsPanel",
+            "playlistPanel"
         ]
     },
     "name": "Application",

@@ -863,7 +863,12 @@ Ext.ClassManager.addNameAlternateMappings({
   "SoundCloud.store.GenreList": [],
   "SoundCloud.store.Playlist": [],
   "SoundCloud.store.Songs": [],
-  "SoundCloud.view.MainView": []
+  "SoundCloud.view.MainView": [],
+  "SoundCloud.view.detailsPanel": [],
+  "SoundCloud.view.genresPanel": [],
+  "SoundCloud.view.homePanel": [],
+  "SoundCloud.view.playlistPanel": [],
+  "SoundCloud.view.uploadPanel": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1876,6 +1881,21 @@ Ext.ClassManager.addNameAliasMappings({
   "SoundCloud.store.Songs": [],
   "SoundCloud.view.MainView": [
     "widget.mainview"
+  ],
+  "SoundCloud.view.detailsPanel": [
+    "widget.detailspanel"
+  ],
+  "SoundCloud.view.genresPanel": [
+    "widget.genrespanel"
+  ],
+  "SoundCloud.view.homePanel": [
+    "widget.homepanel"
+  ],
+  "SoundCloud.view.playlistPanel": [
+    "widget.playlistpanel"
+  ],
+  "SoundCloud.view.uploadPanel": [
+    "widget.uploadpanel"
   ]
 });
 

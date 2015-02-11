@@ -558,6 +558,11 @@ $include-soundcloud-store-genrelist: true;
 $include-soundcloud-store-playlist: true;
 $include-soundcloud-store-songs: true;
 $include-soundcloud-view-mainview: true;
+$include-soundcloud-view-detailspanel: true;
+$include-soundcloud-view-genrespanel: true;
+$include-soundcloud-view-homepanel: true;
+$include-soundcloud-view-playlistpanel: true;
+$include-soundcloud-view-uploadpanel: true;
 /* including package ext-theme-base */
 @import '../../../../../ext/packages/ext-theme-base/sass/etc/all';
 /* including package ext-theme-neutral */
