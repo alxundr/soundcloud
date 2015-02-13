@@ -25,9 +25,9 @@ Ext.define('SoundCloud.store.Playlist', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            autoSync: true,
             model: 'SoundCloud.model.Song',
             storeId: 'Playlist',
+            pageSize: 25,
             proxy: {
                 type: 'localstorage',
                 id: 'localplaylist'

@@ -6,9 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoSync": true,
         "designer|userClassName": "Playlist",
         "model": "Song",
+        "pageSize": 25,
         "storeId": "Playlist"
     },
     "name": "MyStore",

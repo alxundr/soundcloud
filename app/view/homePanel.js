@@ -42,7 +42,7 @@ Ext.define('SoundCloud.view.homePanel', {
                             xtype: 'textfield',
                             flex: 2,
                             itemId: 'searchfield',
-                            fieldLabel: 'Search:'
+                            emptyText: 'Search'
                         }
                     ]
                 }

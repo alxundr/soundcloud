@@ -165,8 +165,10 @@
                     "    defaults: {",
                     "        listeners: {",
                     "            click: function(item) {",
-                    "                this.getPlaylistGrid().store.remove([record]);",
-                    "                this.getPlaylistGrid().store.filter();",
+                    "                var store = this.getPlaylistGrid().store;",
+                    "                store.remove([record]);",
+                    "                store.filter();",
+                    "                store.sync();",
                     "            },",
                     "            scope: this",
                     "        }",
@@ -484,6 +486,87 @@
             },
             "name": "onPlaylistGridAfterRender",
             "designerId": "3e5b71e0-3173-404e-85ef-64d6a4f4c527"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "clearPlaylistButton",
+                "selector": "#clearPlaylistButton"
+            },
+            "name": "clearPlaylistButton",
+            "designerId": "27ba06ef-f326-4b65-9b7f-0b06cdcc14c1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#clearPlaylistButton",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onClearPlaylistButtonClick",
+                "implHandler": [
+                    "var store = this.getPlaylistGrid().store;",
+                    "store.removeAll();",
+                    "store.sync();"
+                ],
+                "name": "click"
+            },
+            "name": "onClearPlaylistButtonClick",
+            "designerId": "9a07986d-689e-4e4f-9988-ec47a89afdd3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "searchPlaylistField",
+                "selector": "#searchPlaylistField"
+            },
+            "name": "searchPlaylistField",
+            "designerId": "414dea81-5761-4b89-9090-101346548299"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#searchPlaylistField",
+                "designer|params": [
+                    "textfield",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "onSearchPlaylistFieldKeyup",
+                "implHandler": [
+                    "var text = textfield.getValue();",
+                    "var store = this.getPlaylistGrid().store;",
+                    "store.clearFilter(true);",
+                    "store.filter('title', text);"
+                ],
+                "name": "keyup"
+            },
+            "name": "onSearchPlaylistFieldKeyup",
+            "designerId": "0b27f5b0-8400-47c2-b0b1-946e179e1287"
         }
     ]
 }

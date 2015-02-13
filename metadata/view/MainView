@@ -176,7 +176,7 @@
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "name": "genrespanel1",
+                            "name": "genrespanel",
                             "designerId": "3cbeaaf9-65cd-440a-9ada-6cd381cbb471",
                             "masterInstanceId": "e725535c-69df-4b15-b868-72fbe069e706"
                         },
@@ -187,7 +187,7 @@
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "name": "uploadpanel1",
+                            "name": "uploadpanel",
                             "designerId": "8692509a-95ae-4793-bd00-627e2dd042e0",
                             "masterInstanceId": "8cf3fb95-aacf-4947-ba36-ab63ceadc79c"
                         }
@@ -203,7 +203,7 @@
                     "userConfig": {
                         "layout|flex": 2
                     },
-                    "name": "playlistpanel1",
+                    "name": "playlistpanel",
                     "designerId": "81b15531-24c9-43c0-97f0-0f10bee6781c",
                     "masterInstanceId": "2279083a-649f-4b56-a11c-9e4275fff8fc"
                 }
@@ -219,7 +219,7 @@
             "userConfig": {
                 "layout|flex": 1
             },
-            "name": "detailspanel1",
+            "name": "detailspanel",
             "designerId": "313cfcdd-ada3-462b-a5c6-d169dee4c052",
             "masterInstanceId": "7f41b923-5158-400d-9106-d830b9486b5d"
         }

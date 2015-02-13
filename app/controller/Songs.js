@@ -40,6 +40,14 @@ Ext.define('SoundCloud.controller.Songs', {
         {
             ref: 'rockGrid',
             selector: '#rockGrid'
+        },
+        {
+            ref: 'clearPlaylistButton',
+            selector: '#clearPlaylistButton'
+        },
+        {
+            ref: 'searchPlaylistField',
+            selector: '#searchPlaylistField'
         }
     ],
 
@@ -77,8 +85,10 @@ Ext.define('SoundCloud.controller.Songs', {
             defaults: {
                 listeners: {
                     click: function(item) {
-                        this.getPlaylistGrid().store.remove([record]);
-                        this.getPlaylistGrid().store.filter();
+                        var store = this.getPlaylistGrid().store;
+                        store.remove([record]);
+                        store.filter();
+                        store.sync();
                     },
                     scope: this
                 }
@@ -122,6 +132,19 @@ Ext.define('SoundCloud.controller.Songs', {
     onPlaylistGridAfterRender: function(component, eOpts) {
         var grid = this.getPlaylistGrid();
         grid.store.reload();
+    },
+
+    onClearPlaylistButtonClick: function(button, e, eOpts) {
+        var store = this.getPlaylistGrid().store;
+        store.removeAll();
+        store.sync();
+    },
+
+    onSearchPlaylistFieldKeyup: function(textfield, e, eOpts) {
+        var text = textfield.getValue();
+        var store = this.getPlaylistGrid().store;
+        store.clearFilter(true);
+        store.filter('title', text);
     },
 
     playTrack: function(record) {
@@ -209,6 +232,12 @@ Ext.define('SoundCloud.controller.Songs', {
             "#rockGrid": {
                 select: this.onRockGridSelect,
                 show: this.onRockGridShow
+            },
+            "#clearPlaylistButton": {
+                click: this.onClearPlaylistButtonClick
+            },
+            "#searchPlaylistField": {
+                keyup: this.onSearchPlaylistFieldKeyup
             }
         });
     }

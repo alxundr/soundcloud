@@ -152,6 +152,17 @@
             "id": "2279083a-649f-4b56-a11c-9e4275fff8fc",
             "cn": [
                 {
+                    "id": "1ed07dd3-6b0e-4116-961b-8dd75b592cf0",
+                    "cn": [
+                        {
+                            "id": "c853cbea-d48c-4dce-ab72-0278d9f33e85"
+                        },
+                        {
+                            "id": "7fc06b08-b0a4-4fd0-b390-bafb9a9f98f9"
+                        }
+                    ]
+                },
+                {
                     "id": "e7c3420c-6e60-4718-88a4-a6f57e2904c8",
                     "cn": [
                         {
@@ -308,6 +319,18 @@
                 },
                 {
                     "id": "3e5b71e0-3173-404e-85ef-64d6a4f4c527"
+                },
+                {
+                    "id": "27ba06ef-f326-4b65-9b7f-0b06cdcc14c1"
+                },
+                {
+                    "id": "9a07986d-689e-4e4f-9988-ec47a89afdd3"
+                },
+                {
+                    "id": "414dea81-5761-4b89-9090-101346548299"
+                },
+                {
+                    "id": "0b27f5b0-8400-47c2-b0b1-946e179e1287"
                 }
             ]
         },
@@ -332,7 +355,6 @@
             "66fc24a6-ee87-4400-a65e-3df99f9e6c55",
             "fd05be7f-f0a9-488b-bbd8-1e930d7f78a5",
             "fe79c2f6-7d87-42e0-ac3e-4f06e0619aca",
-            "954ad8f4-e54e-41bc-a805-2d295e7f9d70",
             "4a54e0d3-f587-450e-a2e1-c86352631702",
             "application",
             "e6dd4023-b19c-41ba-a58e-3d56d0a0597a",
@@ -347,7 +369,7 @@
     },
     "inspectorState": {
         "topInstance": "fd05be7f-f0a9-488b-bbd8-1e930d7f78a5",
-        "selectedInstance": "b10a780f-483a-4e8a-b4da-ea316eba39a0"
+        "selectedInstance": "fd05be7f-f0a9-488b-bbd8-1e930d7f78a5"
     },
     "editMode": "code",
     "userSettings": {

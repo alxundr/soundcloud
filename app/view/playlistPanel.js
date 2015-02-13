@@ -18,6 +18,9 @@ Ext.define('SoundCloud.view.playlistPanel', {
     alias: 'widget.playlistpanel',
 
     requires: [
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Text',
+        'Ext.button.Button',
         'Ext.grid.Panel',
         'Ext.grid.column.Column',
         'Ext.grid.View',
@@ -28,6 +31,7 @@ Ext.define('SoundCloud.view.playlistPanel', {
     itemId: 'playlistPanel',
     ui: 'grayuipanel',
     width: 150,
+    layout: 'border',
     bodyBorder: true,
     title: 'Playlist',
 
@@ -35,9 +39,31 @@ Ext.define('SoundCloud.view.playlistPanel', {
         var me = this;
 
         Ext.applyIf(me, {
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    dock: 'top',
+                    itemId: 'playlistToolbar',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            flex: 3,
+                            itemId: 'searchPlaylistField',
+                            emptyText: 'Search',
+                            enableKeyEvents: true
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'clearPlaylistButton',
+                            text: 'clear'
+                        }
+                    ]
+                }
+            ],
             items: [
                 {
                     xtype: 'gridpanel',
+                    region: 'center',
                     itemId: 'playlistGrid',
                     store: 'Playlist',
                     columns: [

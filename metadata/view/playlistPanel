@@ -11,6 +11,7 @@
         "designer|userAlias": "playlistpanel",
         "designer|userClassName": "playlistPanel",
         "itemId": "playlistPanel",
+        "layout": "border",
         "title": "Playlist",
         "ui": "grayuipanel",
         "width": 150
@@ -19,6 +20,54 @@
     "designerId": "2279083a-649f-4b56-a11c-9e4275fff8fc",
     "cn": [
         {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "itemId": "playlistToolbar"
+            },
+            "name": "MyToolbar2",
+            "designerId": "1ed07dd3-6b0e-4116-961b-8dd75b592cf0",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Search",
+                        "enableKeyEvents": true,
+                        "fieldLabel": null,
+                        "itemId": "searchPlaylistField",
+                        "layout|flex": 3
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "c853cbea-d48c-4dce-ab72-0278d9f33e85"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "clearPlaylistButton",
+                        "layout|flex": null,
+                        "text": "clear"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "7fc06b08-b0a4-4fd0-b390-bafb9a9f98f9"
+                }
+            ]
+        },
+        {
             "type": "Ext.grid.Panel",
             "reference": {
                 "name": "items",
@@ -26,8 +75,10 @@
             },
             "codeClass": null,
             "userConfig": {
+                "border": null,
                 "designer|displayName": "playlistGrid",
                 "itemId": "playlistGrid",
+                "layout|region": "center",
                 "normalViewConfig": null,
                 "store": "Playlist",
                 "title": null

@@ -41,7 +41,8 @@
                     "userConfig": {
                         "designer|createAlias": "",
                         "designer|displayName": "searchField",
-                        "fieldLabel": "Search:",
+                        "emptyText": "Search",
+                        "fieldLabel": null,
                         "itemId": "searchfield",
                         "layout|flex": 2
                     },
