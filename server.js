@@ -58,6 +58,7 @@ app.get('/songs', function(req, res) {
 				tracks[i].description = ''; 
 				oldDuration = tracks[i].duration;
 				tracks[i].duration = convertMS(oldDuration);
+				delete tracks[i].id;
 			}
 			res.contentType('json');
 			res.json({
@@ -95,6 +96,7 @@ app.get('/genres', function(req, res) {
 				tracks[i].description = ''; 
 				oldDuration = tracks[i].duration;
 				tracks[i].duration = convertMS(oldDuration);
+				delete tracks[i].id;
 			}
 			res.contentType('json');
 			res.json({

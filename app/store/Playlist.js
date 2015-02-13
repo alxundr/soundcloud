@@ -17,15 +17,21 @@ Ext.define('SoundCloud.store.Playlist', {
     extend: 'Ext.data.Store',
 
     requires: [
-        'SoundCloud.model.Song'
+        'SoundCloud.model.Song',
+        'Ext.data.proxy.LocalStorage'
     ],
 
     constructor: function(cfg) {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
+            autoSync: true,
             model: 'SoundCloud.model.Song',
-            storeId: 'Playlist'
+            storeId: 'Playlist',
+            proxy: {
+                type: 'localstorage',
+                id: 'localplaylist'
+            }
         }, cfg)]);
     }
 });

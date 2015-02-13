@@ -119,6 +119,11 @@ Ext.define('SoundCloud.controller.Songs', {
         this.loadGenreList('electronic', grid);
     },
 
+    onPlaylistGridAfterRender: function(component, eOpts) {
+        var grid = this.getPlaylistGrid();
+        grid.store.reload();
+    },
+
     playTrack: function(record) {
         var detailsPanel = this.getDetailsPanel(),
             playOptions = {
@@ -160,12 +165,12 @@ Ext.define('SoundCloud.controller.Songs', {
     },
 
     addToPlaylist: function(record) {
-        var grid = this.getPlaylistGrid();
-        grid.store.add(record);
-        /*if (grid.store.data.length === 1) {
-                    this.playTrack(record);
-                    grid.getSelectionModel().select(record,true,false);
-                }*/
+        var store = this.getPlaylistGrid().store;
+        // store.add(record);
+        // store.sync();
+        var song = Ext.create('SoundCloud.model.Song', record.data);
+        store.add(song);
+        store.sync();
     },
 
     loadGenreList: function(genre, grid) {
@@ -190,7 +195,8 @@ Ext.define('SoundCloud.controller.Songs', {
             },
             "#playlistGrid": {
                 itemdblclick: this.onPlaylistGridSelect,
-                itemcontextmenu: this.onPlaylistGridItemContextMenu
+                itemcontextmenu: this.onPlaylistGridItemContextMenu,
+                afterrender: this.onPlaylistGridAfterRender
             },
             "#connectbtn": {
                 click: this.onConnectbtnClick

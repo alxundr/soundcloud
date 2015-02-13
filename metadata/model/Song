@@ -6,7 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "Song"
+        "designer|userClassName": "Song",
+        "idProperty": null
     },
     "name": "MyModel",
     "designerId": "5b2997e7-db0f-4e39-8a8d-20a14f613d4b",

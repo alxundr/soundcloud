@@ -310,12 +310,12 @@
                 ],
                 "fn": "addToPlaylist",
                 "implHandler": [
-                    "var grid = this.getPlaylistGrid();",
-                    "grid.store.add(record);",
-                    "/*if (grid.store.data.length === 1) {",
-                    "            this.playTrack(record);",
-                    "            grid.getSelectionModel().select(record,true,false);",
-                    "        }*/"
+                    "var store = this.getPlaylistGrid().store;",
+                    "// store.add(record);",
+                    "// store.sync();",
+                    "var song = Ext.create('SoundCloud.model.Song', record.data);",
+                    "store.add(song);",
+                    "store.sync();"
                 ]
             },
             "name": "addToPlaylist",
@@ -460,6 +460,30 @@
             },
             "name": "loadGenreList",
             "designerId": "76337711-debe-4eea-97f4-d09689b888e0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#playlistGrid",
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onPlaylistGridAfterRender",
+                "implHandler": [
+                    "var grid = this.getPlaylistGrid();",
+                    "grid.store.reload();"
+                ],
+                "name": "afterrender"
+            },
+            "name": "onPlaylistGridAfterRender",
+            "designerId": "3e5b71e0-3173-404e-85ef-64d6a4f4c527"
         }
     ]
 }

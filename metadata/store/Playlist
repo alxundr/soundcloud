@@ -6,10 +6,27 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoSync": true,
         "designer|userClassName": "Playlist",
         "model": "Song",
         "storeId": "Playlist"
     },
     "name": "MyStore",
-    "designerId": "fe79c2f6-7d87-42e0-ac3e-4f06e0619aca"
+    "designerId": "fe79c2f6-7d87-42e0-ac3e-4f06e0619aca",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.LocalStorage",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "localPlaylist",
+                "id": "localplaylist"
+            },
+            "name": "MyLocalStorageProxy",
+            "designerId": "538d73b2-ebac-4975-bda0-6f75de85ff57"
+        }
+    ]
 }
